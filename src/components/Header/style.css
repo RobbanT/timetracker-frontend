@@ -1,0 +1,17 @@
+header {
+    padding: 0 25px;
+}
+
+header > img {
+    float: left;
+    width: 35px;
+    height: 35px;
+    padding: 23px 10px 0 0;
+}
+
+header > h1 {
+    display: inline-block;
+    font: italic 32px Futura;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #555555;
+}

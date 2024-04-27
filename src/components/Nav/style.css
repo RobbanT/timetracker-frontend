@@ -1,0 +1,21 @@
+nav {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: white;
+    text-align: center;
+    padding: 12px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav > a {
+    font: bold 14px Arial;
+    color: #3376aa;
+    text-decoration: none;
+    padding: 5px 25px;
+}
+
+nav > a:hover {
+    cursor: pointer;
+    color: #4294d5;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
