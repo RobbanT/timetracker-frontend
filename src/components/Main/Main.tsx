@@ -10,17 +10,18 @@ function Main(props: Props) {
             <div className="container">
                 <h2>{props.page}</h2>
                 {{
-                    Hem: <RandomArticle />,
-                    Tidsuppföljning: <TimeTracking />,
-                    Funktioner: <RandomArticle />,
-                    Om: <RandomArticle />,
-                }[props.page] || <RandomArticle />}
+                    Hem: <Home />,
+                    Tidsrapportering: <TimeTracking />,
+                    Medlemmar: <Members />,
+                    "Logga in": <Login />,
+                    "Bli medlem": <SignUp />,
+                }[props.page] || <Home />}
             </div>
         </main>
     );
 }
 
-function RandomArticle() {
+function Home() {
     return (
         <article>
             <p>
@@ -50,6 +51,57 @@ function RandomArticle() {
 
 function TimeTracking() {
     return <></>;
+}
+
+function Members() {
+    return (
+        <ul>
+            <li>
+                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+            </li>
+            <li>
+                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+            </li>{" "}
+            <li>
+                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+            </li>{" "}
+            <li>
+                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+            </li>{" "}
+            <li>
+                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+            </li>{" "}
+            <li>
+                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+            </li>
+        </ul>
+    );
+}
+
+function Login() {
+    return (
+        <form>
+            <label>E-postadress</label>
+            <input placeholder="Ange e-postadress..." type="email" maxLength={64} required></input>
+            <label>Lösenord</label>
+            <input placeholder="Ange lösenord..." type="password" minLength={12} maxLength={64} required></input>
+            <button type="submit">Logga in</button>
+        </form>
+    );
+}
+
+function SignUp() {
+    return (
+        <form>
+            <label>E-postadress</label>
+            <input placeholder="Ange e-postadress..." type="email" maxLength={64} required></input>
+            <label>Lösenord</label>
+            <input placeholder="Ange lösenord..." type="password" minLength={12} maxLength={64} required></input>
+            <label>Bekräfta lösenord</label>
+            <input placeholder="Bekräfta lösenord..." type="password" minLength={12} maxLength={64} required></input>
+            <button type="submit">Bli medlem</button>
+        </form>
+    );
 }
 
 export default Main;

@@ -17,13 +17,95 @@ main {
 
 .container h2 {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font: bold 30px Arial;
-    color: #000000;
+    color: #606062;
     text-align: center;
 }
 
 .container p {
     color: #555555;
     font: lighter medium Arial;
+}
+
+ul {
+    padding: 0;
+}
+
+ul > li {
+    background-color: #ffffff;
+    background-image: url("../../assets/user-icon.svg");
+    background-repeat: no-repeat;
+    background-position-x: left 15px;
+    background-position-y: 13px;
+    word-wrap: break-word;
+    color: #606062;
+    font: bold 15px Arial;
+    list-style-type: none;
+    padding: 15px 15px 15px 45px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    border: rgba(0, 0, 0, 0.1) solid 1px;
+}
+
+ul > li > span {
+    display: block;
+}
+
+form {
+    background-color: #ffffff;
+    color: #606062;
+    font: bold 15px Arial;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    border: rgba(0, 0, 0, 0.1) solid 1px;
+}
+
+form > label {
+    font: lighter 15px Arial;
+    display: block;
+    margin-bottom: 3px;
+}
+
+form > input {
+    font: lighter 15px Arial;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 35px;
+    border-style: none;
+    border: #cccccc solid 1px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: none;
+    color: #606062;
+}
+
+form > input:hover {
+    cursor: text;
+    box-shadow: 0 0 7px rgba(66, 148, 213, 0.5);
+    border-color: #4294d5;
+}
+
+form > input:focus {
+    outline: none;
+}
+
+form > button {
+    margin-top: 15px;
+    color: #ffffff;
+    font: bold 15px Arial;
+    height: 40px;
+    width: 100%;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #4294d5;
+}
+
+form > button:hover {
+    cursor: pointer;
+    background-color: #3376aa;
+    box-shadow: 0 0 10px rgba(66, 148, 213, 0.5);
 }
