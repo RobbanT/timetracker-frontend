@@ -49,10 +49,6 @@ ul > li {
     border: rgba(0, 0, 0, 0.1) solid 1px;
 }
 
-ul > li > span {
-    display: block;
-}
-
 form {
     background-color: #ffffff;
     color: #606062;
