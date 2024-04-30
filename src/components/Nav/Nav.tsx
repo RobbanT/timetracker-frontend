@@ -8,9 +8,10 @@ function Nav(props: Props) {
     return (
         <nav>
             <a onClick={() => props.setPage("Hem")}>Hem</a>
-            <a onClick={() => props.setPage("Tidsuppföljning")}>Tidsuppföljning</a>
-            <a onClick={() => props.setPage("Funktioner")}>Funktioner</a>
-            <a onClick={() => props.setPage("Om")}>Om</a>
+            <a onClick={() => props.setPage("Tidsrapportering")}>Tidsrapportering</a>
+            <a onClick={() => props.setPage("Medlemmar")}>Medlemmar</a>
+            <a onClick={() => props.setPage("Logga in")}>Logga in</a>
+            <a onClick={() => props.setPage("Bli medlem")}>Bli medlem</a>
         </nav>
     );
 }
