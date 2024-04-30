@@ -57,22 +57,82 @@ function Members() {
     return (
         <ul>
             <li>
-                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
             </li>
             <li>
-                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
-            </li>{" "}
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
             <li>
-                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
-            </li>{" "}
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
             <li>
-                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
-            </li>{" "}
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
             <li>
-                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
-            </li>{" "}
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
             <li>
-                {"hej_hej@hotmail.com"}, Incheckad tid: {new Date().toDateString()}
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
+            </li>
+            <li>
+                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
             </li>
         </ul>
     );
@@ -81,8 +141,8 @@ function Members() {
 function Login() {
     return (
         <form>
-            <label>E-postadress</label>
-            <input placeholder="Ange e-postadress..." type="email" maxLength={64} required></input>
+            <label>Användarnamn</label>
+            <input placeholder="Ange användarnamn..." maxLength={64} required></input>
             <label>Lösenord</label>
             <input placeholder="Ange lösenord..." type="password" minLength={12} maxLength={64} required></input>
             <button type="submit">Logga in</button>
@@ -93,8 +153,8 @@ function Login() {
 function SignUp() {
     return (
         <form>
-            <label>E-postadress</label>
-            <input placeholder="Ange e-postadress..." type="email" maxLength={64} required></input>
+            <label>Användarnamn</label>
+            <input placeholder="Användarnamn" maxLength={64} required></input>
             <label>Lösenord</label>
             <input placeholder="Ange lösenord..." type="password" minLength={12} maxLength={64} required></input>
             <label>Bekräfta lösenord</label>

@@ -30,6 +30,9 @@ main {
 
 ul {
     padding: 0;
+    overflow-y: auto;
+    padding: 0 10px 0 0;
+    height: 60vh;
 }
 
 ul > li {
@@ -40,10 +43,10 @@ ul > li {
     background-position-y: 13px;
     word-wrap: break-word;
     color: #606062;
-    font: bold 15px Arial;
+    font: lighter 15px Arial;
     list-style-type: none;
     padding: 15px 15px 15px 45px;
-    margin: 10px 0;
+    margin: 0 0 10px 0;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     border: rgba(0, 0, 0, 0.1) solid 1px;
@@ -104,4 +107,25 @@ form > button:hover {
     cursor: pointer;
     background-color: #3376aa;
     box-shadow: 0 0 10px rgba(66, 148, 213, 0.5);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    margin-bottom: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    border: rgba(0, 0, 0, 0.1) solid 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f6f6f6;
+    cursor: inherit;
 }
