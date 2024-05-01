@@ -1,4 +1,9 @@
 import "./style.css";
+import Home from "../Home/";
+import TimeTracking from "../TimeTracking/";
+import Members from "../Members/";
+import Login from "../Login/";
+import SignUp from "../SignUp/";
 
 interface Props {
     page: string;
@@ -18,149 +23,6 @@ function Main(props: Props) {
                 }[props.page] || <Home />}
             </div>
         </main>
-    );
-}
-
-function Home() {
-    return (
-        <article>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quos officia ab vitae. Exercitationem natus labore, dicta aliquid ab eaque alias perspiciatis excepturi! Suscipit
-                necessitatibus sint, sed eaque ipsam in? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae neque quo maiores illo, labore minima tempore veritatis quaerat
-                asperiores fuga qui recusandae distinctio tempora corrupti dolorum nobis numquam, impedit ex? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quos officia ab vitae.
-                Exercitationem natus labore, dicta aliquid ab eaque alias perspiciatis excepturi! Suscipit necessitatibus sint, sed eaque ipsam in? Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Repudiandae neque quo maiores illo, labore minima tempore veritatis quaerat asperiores fuga qui recusandae distinctio tempora corrupti dolorum nobis numquam, impedit ex?
-            </p>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quos officia ab vitae. Exercitationem natus labore, dicta aliquid ab eaque alias perspiciatis excepturi! Suscipit
-                necessitatibus sint, sed eaque ipsam in? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae neque quo maiores illo, labore minima tempore veritatis quaerat
-                asperiores fuga qui recusandae distinctio tempora corrupti dolorum nobis numquam, impedit ex? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quos officia ab vitae.
-                Exercitationem natus labore, dicta aliquid ab eaque alias perspiciatis excepturi! Suscipit necessitatibus sint, sed eaque ipsam in? Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Repudiandae neque quo maiores illo, labore minima tempore veritatis quaerat asperiores fuga qui recusandae distinctio tempora corrupti dolorum nobis numquam, impedit ex?
-            </p>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quos officia ab vitae. Exercitationem natus labore, dicta aliquid ab eaque alias perspiciatis excepturi! Suscipit
-                necessitatibus sint, sed eaque ipsam in? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae neque quo maiores illo, labore minima tempore veritatis quaerat
-                asperiores fuga qui recusandae distinctio tempora corrupti dolorum nobis numquam, impedit ex? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quos officia ab vitae.
-                Exercitationem natus labore, dicta aliquid ab eaque alias perspiciatis excepturi! Suscipit necessitatibus sint, sed eaque ipsam in? Lorem ipsum dolor, sit amet consectetur adipisicing
-                elit. Repudiandae neque quo maiores illo, labore minima tempore veritatis quaerat asperiores fuga qui recusandae distinctio tempora corrupti dolorum nobis numquam, impedit ex?
-            </p>
-        </article>
-    );
-}
-
-function TimeTracking() {
-    return <></>;
-}
-
-function Members() {
-    return (
-        <ul>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-            <li>
-                {"Kalle"}, {new Date().toLocaleTimeString()} timmar.
-            </li>
-        </ul>
-    );
-}
-
-function Login() {
-    return (
-        <form>
-            <label>Användarnamn</label>
-            <input placeholder="Ange användarnamn..." maxLength={64} required></input>
-            <label>Lösenord</label>
-            <input placeholder="Ange lösenord..." type="password" minLength={12} maxLength={64} required></input>
-            <button type="submit">Logga in</button>
-        </form>
-    );
-}
-
-function SignUp() {
-    return (
-        <form>
-            <label>Användarnamn</label>
-            <input placeholder="Användarnamn" maxLength={64} required></input>
-            <label>Lösenord</label>
-            <input placeholder="Ange lösenord..." type="password" minLength={12} maxLength={64} required></input>
-            <label>Bekräfta lösenord</label>
-            <input placeholder="Bekräfta lösenord..." type="password" minLength={12} maxLength={64} required></input>
-            <button type="submit">Bli medlem</button>
-        </form>
     );
 }
 

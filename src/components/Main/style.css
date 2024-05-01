@@ -36,20 +36,29 @@ ul {
 }
 
 ul > li {
+    display: inline-block;
     background-color: #ffffff;
-    background-image: url("../../assets/user-icon.svg");
-    background-repeat: no-repeat;
-    background-position-x: left 15px;
-    background-position-y: 13px;
-    word-wrap: break-word;
     color: #606062;
-    font: lighter 15px Arial;
     list-style-type: none;
-    padding: 15px 15px 15px 45px;
-    margin: 0 0 10px 0;
+    padding: 10px 15px;
+    margin: 0 1% 10px 1%;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     border: rgba(0, 0, 0, 0.1) solid 1px;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+ul > li > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul > li > p {
+    font: bold large Arial;
+    text-align: center;
+    margin-top: 0;
 }
 
 form {
