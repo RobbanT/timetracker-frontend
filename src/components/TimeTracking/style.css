@@ -15,7 +15,7 @@
     width: 25%;
     background-color: #4294d5;
     color: #ffffff;
-    font: bold 15px Arial;
+    font: bold 20px Arial;
     height: 40px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -32,7 +32,7 @@
 }
 
 #root > main > div > div.react-calendar > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__weekdays {
-    font: bold 15px Arial;
+    font: bold 20px Arial;
     text-transform: capitalize;
     color: #606062;
 }
