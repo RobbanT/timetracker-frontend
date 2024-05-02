@@ -1,8 +1,18 @@
 import { useState } from "react";
 import "./style.css";
 
+interface Inputs {
+    username: string;
+    password: string;
+    passwordConfirm: string;
+}
+
 function SignUp() {
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState<Inputs>({
+        username: "",
+        password: "",
+        passwordConfirm: "",
+    });
 
     const handleChange = (event: any) => {
         const name = event.target.name;
@@ -28,11 +38,11 @@ function SignUp() {
     return (
         <form onSubmit={handleSubmit}>
             <label>Användarnamn</label>
-            <input placeholder="Ange användarnamn..." name="username" onChange={handleChange} maxLength={64} required></input>
+            <input placeholder="Ange användarnamn..." value={inputs.username || ""} name="username" onChange={handleChange} maxLength={64} required></input>
             <label>Lösenord</label>
-            <input placeholder="Ange lösenord..." name="password" onChange={handleChange} type="password" minLength={12} maxLength={64} required></input>
+            <input placeholder="Ange lösenord..." value={inputs.password || ""} name="password" onChange={handleChange} minLength={12} maxLength={64} required></input>
             <label>Bekräfta lösenord</label>
-            <input placeholder="Bekräfta lösenord..." name="passwordConfirm" onChange={handleChange} type="password" minLength={12} maxLength={64} required></input>
+            <input placeholder="Bekräfta lösenord..." value={inputs.passwordConfirm || ""} name="passwordConfirm" onChange={handleChange} minLength={12} maxLength={64} required></input>
             <button type="submit">Bli medlem</button>
         </form>
     );
