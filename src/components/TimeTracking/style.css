@@ -15,6 +15,8 @@
     color: #ffffff;
     font: bold 15px Arial;
     height: 40px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 #root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__label {
@@ -38,6 +40,8 @@
     color: #ffffff;
     font: bold 14px Arial;
     height: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .react-calendar__month-view {
