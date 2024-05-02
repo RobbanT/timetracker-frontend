@@ -54,13 +54,13 @@
     padding: 20px;
     border: 1px solid #e5e5e5;
     border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 #root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button {
     margin-top: 10px;
     background-color: #ffffff;
-    border: 1px solid rgba(229, 229, 229, 0.1);
+    border: 1px solid rgba(229, 229, 229, 0.5);
     height: 30px;
     cursor: pointer;
 }
