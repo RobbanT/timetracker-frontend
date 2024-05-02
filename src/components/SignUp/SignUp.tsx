@@ -8,7 +8,6 @@ interface Inputs {
 }
 
 function SignUp() {
-    const [render, rerender] = useState(false);
     const [inputs, setInputs] = useState<Inputs>({
         username: "",
         password: "",
@@ -30,7 +29,6 @@ function SignUp() {
             }),
         });
         alert(inputs.username + "\tär nu registrerad!");
-        rerender(!render);
     };
 
     return (
