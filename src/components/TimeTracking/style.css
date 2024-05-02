@@ -2,6 +2,7 @@
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
     border-style: none;
+    cursor: pointer;
 }
 
 .react-calendar__navigation {
@@ -59,30 +60,36 @@
     margin-top: 10px;
     background-color: #ffffff;
     border: 1px solid rgba(229, 229, 229, 0.1);
+    height: 30px;
 }
 
 #root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button:hover {
     background-color: #e5e5e5;
+    cursor: pointer;
 }
 
-.container
+#root
+    > main
+    > div
     > div
     > div.react-calendar__viewContainer
     > div
     > div
     > div
     > div.react-calendar__month-view__days
-    > button.react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day {
+    > button.react-calendar__tile.react-calendar__tile--now.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day {
     background-color: #67be87;
 }
 
-.container
+#root
+    > main
+    > div
     > div
     > div.react-calendar__viewContainer
     > div
     > div
     > div
     > div.react-calendar__month-view__days
-    > button.react-calendar__tile.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day:hover {
+    > button.react-calendar__tile.react-calendar__tile--now.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day:hover {
     background-color: #88eaac;
 }
