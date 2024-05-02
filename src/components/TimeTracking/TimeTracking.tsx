@@ -1,7 +1,7 @@
 import "./style.css";
 
 function TimeTracking() {
-    return <></>;
+    return <div className="container"></div>;
 }
 
 export default TimeTracking;
