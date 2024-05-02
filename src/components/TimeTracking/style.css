@@ -81,6 +81,7 @@
     > div.react-calendar__month-view__days
     > button.react-calendar__tile.react-calendar__tile--now.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day {
     background-color: #4294d5;
+    color: #ffffff;
 }
 
 #root
@@ -94,5 +95,4 @@
     > div.react-calendar__month-view__days
     > button.react-calendar__tile.react-calendar__tile--now.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day:hover {
     background-color: #3376aa;
-    color: #ffffff;
 }
