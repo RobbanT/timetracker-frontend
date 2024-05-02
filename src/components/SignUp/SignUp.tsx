@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import "./style.css";
 
 interface Inputs {
@@ -14,11 +14,9 @@ function SignUp() {
         passwordConfirm: "",
     });
 
-    const handleChange = (event: any) => {
-        setInputs((values) => ({ ...values, [event.target.name]: event.target.value }));
-    };
+    const handleChange = (event: any) => setInputs((values) => ({ ...values, [event.target.name]: event.target.value }));
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         fetch("https://backend-eft68.ondigitalocean.app/user", {
             method: "POST",
