@@ -32,7 +32,11 @@ function TimeTracking() {
                 <ul>
                     {loadUser().tasks.map((task: Task) => (
                         <li>
-                            <p>{task.title}</p>
+                            <p>
+                                Titel
+                                <br />
+                                {task.title}
+                            </p>
                         </li>
                     ))}
                 </ul>
