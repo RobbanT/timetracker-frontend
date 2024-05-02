@@ -71,6 +71,7 @@
     border: 1px solid rgba(229, 229, 229, 0.7);
     height: 40px;
     font: lighter 15px Arial;
+    color: #606062;
 }
 
 #root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button:hover {
