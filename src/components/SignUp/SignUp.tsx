@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import "./style.css";
 
 interface Inputs {
@@ -8,13 +8,14 @@ interface Inputs {
 }
 
 function SignUp() {
+    const [render, rerender] = useState(false);
     const [inputs, setInputs] = useState<Inputs>({
         username: "",
         password: "",
         passwordConfirm: "",
     });
 
-    const handleChange = (event: any) => setInputs((values) => ({ ...values, [event.target.name]: event.target.value }));
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => setInputs((values) => ({ ...values, [event.target.name]: event.target.value }));
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
@@ -29,6 +30,7 @@ function SignUp() {
             }),
         });
         alert(inputs.username + "\tär nu registrerad!");
+        rerender(!render);
     };
 
     return (
