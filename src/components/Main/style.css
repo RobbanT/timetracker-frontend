@@ -41,7 +41,7 @@ ul > li {
     color: #606062;
     list-style-type: none;
     padding: 10px 15px;
-    margin: 0 1% 10px 1%;
+    margin: 0 0 10px 0;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     border: rgba(0, 0, 0, 0.1) solid 1px;
