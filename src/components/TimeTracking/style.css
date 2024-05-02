@@ -15,6 +15,7 @@
     background-color: #4294d5;
     color: #ffffff;
     font: bold 14px Arial;
+    height: 40px;
 }
 
 #root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__label {
@@ -23,6 +24,7 @@
     width: 50%;
     font: bold 14px Arial;
     text-transform: capitalize;
+    height: 40px;
 }
 
 #root > main > div > div.react-calendar > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__weekdays {
@@ -36,6 +38,7 @@
     background-color: #4294d5;
     color: #ffffff;
     font: bold 14px Arial;
+    height: 40px;
 }
 
 .react-calendar__month-view {
