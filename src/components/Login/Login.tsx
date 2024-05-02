@@ -6,21 +6,21 @@ interface Inputs {
     password: string;
 }
 
-interface Task {
+/*interface Task {
     title: string;
     date: string;
     startTime: string;
     endTime: string;
-}
+}*/
 
-interface Member {
+/*interface Member {
     username: string;
     password: string;
     tasks: Task[];
-}
+}*/
 
 function Login() {
-    const [member, setMember] = useState<Member>();
+    //const [member, setMember] = useState<Member>();
     const [inputs, setInputs] = useState<Inputs>({
         username: "",
         password: "",
@@ -32,8 +32,7 @@ function Login() {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${inputs.username}`)
             .then((res) => res.json())
-            .then((data) => setMember(data));
-        console.log(member);
+            .then((data) => console.log(data));
     };
 
     return (
