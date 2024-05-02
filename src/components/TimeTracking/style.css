@@ -8,7 +8,7 @@
     border: 1px solid #e5e5e5;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__arrow.react-calendar__navigation__prev-button {
@@ -113,4 +113,14 @@
     > div.react-calendar__month-view__days
     > button.react-calendar__tile.react-calendar__tile--now.react-calendar__tile--active.react-calendar__tile--range.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd.react-calendar__tile--rangeBothEnds.react-calendar__month-view__days__day:hover {
     background-color: #3376aa;
+}
+
+.inner-container {
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    width: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
