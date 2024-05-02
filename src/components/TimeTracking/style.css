@@ -78,8 +78,12 @@
     background-color: #e5e5e5;
 }
 
+#root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button:disabled {
+    background-color: #e5e5e5;
+}
+
 #root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button:disabled:hover {
-    cursor: none;
+    cursor: auto;
     background-color: #e5e5e5;
 }
 
