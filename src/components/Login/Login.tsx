@@ -34,7 +34,7 @@ function Login() {
             .then((res) => res.json())
             .then((data) => {
                 setMember(data);
-                localStorage.setItem("user", JSON.stringify(member));
+                localStorage.setItem("user", JSON.stringify(member?.password));
             });
     };
 
