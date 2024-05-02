@@ -15,9 +15,7 @@ function SignUp() {
     });
 
     const handleChange = (event: any) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs((values) => ({ ...values, [name]: value }));
+        setInputs((values) => ({ ...values, [event.target.name]: event.target.value }));
     };
 
     const handleSubmit = (event: any) => {
@@ -38,11 +36,11 @@ function SignUp() {
     return (
         <form onSubmit={handleSubmit}>
             <label>Användarnamn</label>
-            <input placeholder="Ange användarnamn..." value={inputs.username || ""} name="username" onChange={handleChange} maxLength={64} required></input>
+            <input placeholder="Ange användarnamn..." value={inputs.username} name="username" onChange={handleChange} maxLength={64} required></input>
             <label>Lösenord</label>
-            <input placeholder="Ange lösenord..." value={inputs.password || ""} name="password" onChange={handleChange} minLength={12} maxLength={64} required></input>
+            <input placeholder="Ange lösenord..." value={inputs.password} name="password" onChange={handleChange} minLength={12} maxLength={64} required></input>
             <label>Bekräfta lösenord</label>
-            <input placeholder="Bekräfta lösenord..." value={inputs.passwordConfirm || ""} name="passwordConfirm" onChange={handleChange} minLength={12} maxLength={64} required></input>
+            <input placeholder="Bekräfta lösenord..." value={inputs.passwordConfirm} name="passwordConfirm" onChange={handleChange} minLength={12} maxLength={64} required></input>
             <button type="submit">Bli medlem</button>
         </form>
     );
