@@ -54,25 +54,11 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.container
-    > div
-    > div.react-calendar__viewContainer
-    > div
-    > div
-    > div
-    > div.react-calendar__month-view__days
-    > button.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day {
+#root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days {
     background-color: #ffffff;
 }
 
-.container
-    > div
-    > div.react-calendar__viewContainer
-    > div
-    > div
-    > div
-    > div.react-calendar__month-view__days
-    > button.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day:hover {
+#root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days:hover {
     background-color: #e5e5e5;
 }
 
