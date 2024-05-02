@@ -1,6 +1,5 @@
 .react-calendar button {
-    border-radius: 4px;
-    border: 1px solid #e5e5e527;
+    border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -14,7 +13,7 @@
     width: 25%;
     background-color: #4294d5;
     color: #ffffff;
-    font: bold 14px Arial;
+    font: bold 15px Arial;
     height: 40px;
 }
 
@@ -22,15 +21,15 @@
     color: #606062;
     background-color: #ffffff;
     width: 50%;
-    font: bold 14px Arial;
+    font: bold 15px Arial;
     text-transform: capitalize;
     height: 40px;
 }
 
 #root > main > div > div.react-calendar > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__weekdays {
-    font: bold 14px Arial;
+    font: bold 15px Arial;
     text-transform: capitalize;
-    color: #555555;
+    color: #606062;
 }
 
 #root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__arrow.react-calendar__navigation__next-button {
