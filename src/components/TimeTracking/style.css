@@ -22,6 +22,10 @@
     cursor: pointer;
 }
 
+#root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__arrow.react-calendar__navigation__prev-button:hover {
+    background-color: #3376aa;
+}
+
 #root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__label {
     color: #606062;
     background-color: #ffffff;
@@ -48,6 +52,10 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     cursor: pointer;
+}
+
+#root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__arrow.react-calendar__navigation__next-button:hover {
+    background-color: #3376aa;
 }
 
 .react-calendar__month-view {
