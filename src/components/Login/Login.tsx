@@ -39,9 +39,9 @@ function Login() {
     return (
         <form onSubmit={handleSubmit}>
             <label>Användarnamn</label>
-            <input placeholder="Ange användarnamn..." value={inputs.username} name="username" onChange={handleChange} maxLength={64} required></input>
+            <input placeholder="Ange användarnamn..." value={inputs.username} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
             <label>Lösenord</label>
-            <input placeholder="Ange lösenord..." value={inputs.password} name="password" onChange={handleChange} type="password" minLength={12} maxLength={64} required></input>
+            <input placeholder="Ange lösenord..." value={inputs.password} name="password" onChange={handleChange} type="password" minLength={5} maxLength={64} required></input>
             <button type="submit">Logga in</button>
         </form>
     );
