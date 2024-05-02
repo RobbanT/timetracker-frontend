@@ -27,7 +27,7 @@ function Nav(props: Props) {
             <a onClick={() => props.setPage("Hem")}>Hem</a>
             <a onClick={() => props.setPage("Tidsrapportering")}>Tidsrapportering</a>
             {loadUser() != null && loadUser().username == "admin" ? <a onClick={() => props.setPage("Medlemmar")}>Medlemmar</a> : null}
-            <a onClick={() => props.setPage("Logga in")}>{localStorage.getItem("cart") != null ? "Logga in" : "Logga ut"}</a>
+            <a onClick={() => props.setPage("Logga in")}>{loadUser() == null ? "Logga in" : "Logga ut"}</a>
             <a onClick={() => props.setPage("Bli medlem")}>Bli medlem</a>
         </nav>
     );
