@@ -35,6 +35,7 @@
     font: bold 15px Arial;
     text-transform: capitalize;
     color: #606062;
+    text-align: center;
 }
 
 #root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__arrow.react-calendar__navigation__next-button {
