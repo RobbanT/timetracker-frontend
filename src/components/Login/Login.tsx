@@ -33,8 +33,7 @@ function Login() {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${inputs.username}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                setMember(member);
+                setMember(data);
                 console.log(member);
             });
     };
