@@ -71,10 +71,10 @@
     border: 1px solid rgba(229, 229, 229, 0.7);
     height: 40px;
     font: lighter 15px Arial;
-    cursor: pointer;
 }
 
 #root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button:hover {
+    cursor: pointer;
     background-color: #e5e5e5;
 }
 
