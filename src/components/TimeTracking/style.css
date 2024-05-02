@@ -60,8 +60,8 @@
 #root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button {
     margin-top: 10px;
     background-color: #ffffff;
-    border: 1px solid rgba(229, 229, 229, 0.5);
-    height: 30px;
+    border: 1px solid rgba(229, 229, 229, 0.7);
+    height: 40px;
     cursor: pointer;
 }
 
