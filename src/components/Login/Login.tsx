@@ -18,7 +18,7 @@ function Login() {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`).then((res) =>
             res.json().then((data) => {
-                localStorage.setItem("user", JSON.stringify(data));
+                localStorage.setItem("user", data);
             })
         );
     };
