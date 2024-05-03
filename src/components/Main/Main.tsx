@@ -9,14 +9,14 @@ interface Props {
     page: string;
 }
 
-interface Task {
+export interface Task {
     title: string;
     date: string;
     startTime: string;
     endTime: string;
 }
 
-interface Member {
+export interface Member {
     username: string;
     password: string;
     tasks: Task[];
@@ -40,4 +40,3 @@ function Main(props: Props) {
 }
 
 export default Main;
-export type { Task, Member };
