@@ -1,12 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import "./style.css";
 
+interface Props {
+    setPage: (page: string) => void;
+}
+
 interface Input {
     username: string;
     password: string;
 }
 
-function Login() {
+function Login(props: Props) {
     const [input, setInput] = useState<Input>({
         username: "",
         password: "",
@@ -20,6 +24,7 @@ function Login() {
             .then((res) => res.json())
             .then((data) => {
                 localStorage.setItem("user", JSON.stringify(data));
+                props.setPage("Hem");
             });
     };
 

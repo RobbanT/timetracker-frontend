@@ -32,7 +32,7 @@ function Main(props: Props) {
                     Hem: <Home />,
                     Tidsrapportering: <TimeTracking />,
                     Medlemmar: <Members />,
-                    "Logga in": <Login />,
+                    "Logga in": <Login setPage={props.setPage} />,
                     "Bli medlem": <SignUp setPage={props.setPage} />,
                 }[props.page] || <Home />}
             </div>
