@@ -17,6 +17,11 @@ function SignUp() {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         if (input.password == input.passwordConfirm) {
+            fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    alert(data.username);
+                });
             fetch("https://backend-eft68.ondigitalocean.app/user", {
                 method: "POST",
                 headers: {
@@ -30,7 +35,6 @@ function SignUp() {
         } else {
             alert("Lösenorden stämmer inte överens. Försök igen!");
         }
-        alert(input.username + "är nu registrerad!");
     };
 
     return (
