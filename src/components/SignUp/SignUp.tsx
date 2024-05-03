@@ -48,7 +48,6 @@ function SignUp(props: Props) {
             alert("Lösenorden stämmer inte överens. Försök igen!");
         }
     };
-
     return (
         <form onSubmit={handleSubmit}>
             <label>Användarnamn</label>
