@@ -21,7 +21,7 @@ function Login() {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data == undefined) {
-                        alert("hej");
+                        //alert("hej");
                     }
                     localStorage.setItem("user", JSON.stringify(data));
                 })
