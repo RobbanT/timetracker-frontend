@@ -16,11 +16,14 @@ function Login() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`).then((res) =>
-            res.json().then((data) => {
-                localStorage.setItem("user", data);
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
+            .then((res) => {
+                alert(res.ok);
+                return res.json();
             })
-        );
+            .then((data) => {
+                localStorage.setItem("user", JSON.stringify(data));
+            });
     };
 
     return (
