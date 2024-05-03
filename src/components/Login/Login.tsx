@@ -19,7 +19,11 @@ function Login() {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
             .then((res) => res.json())
             .then((data) => {
-                alert(typeof data);
+                if (typeof data == "object") {
+                    alert("Ett objekt");
+                } else {
+                    alert("Inte ett objekt");
+                }
                 //localStorage.setItem("user", JSON.stringify(data));
             });
     };
