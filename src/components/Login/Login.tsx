@@ -21,8 +21,9 @@ function Login() {
             .then((data) => {
                 if (data === null) {
                     alert("NOOOOOO");
+                } else {
+                    localStorage.setItem("user", JSON.stringify(data));
                 }
-                localStorage.setItem("user", JSON.stringify(data));
             });
     };
 
