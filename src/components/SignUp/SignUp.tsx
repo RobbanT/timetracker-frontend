@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { Member } from "../Main";
 import "./style.css";
 
 interface Input {
@@ -17,21 +18,27 @@ function SignUp() {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         if (input.password == input.passwordConfirm) {
-            fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}`)
+            fetch("https://backend-eft68.ondigitalocean.app/users")
                 .then((res) => res.json())
                 .then((data) => {
-                    alert(data.username);
+                    data.map((member: Member) => {
+                        if (member.username == input.username) {
+                            alert("En användare med detta användarnamn existerar redan. Försök igen!");
+                            return;
+                        } else {
+                            fetch("https://backend-eft68.ondigitalocean.app/user", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    username: input.username,
+                                    password: input.password,
+                                }),
+                            });
+                        }
+                    });
                 });
-            fetch("https://backend-eft68.ondigitalocean.app/user", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    username: input.username,
-                    password: input.password,
-                }),
-            });
         } else {
             alert("Lösenorden stämmer inte överens. Försök igen!");
         }
