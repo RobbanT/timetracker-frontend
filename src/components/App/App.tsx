@@ -5,12 +5,12 @@ import Main from "../Main/";
 import { useState } from "react";
 
 function App() {
-    const [page, setPage] = useState<string>("Hem");
+    const [page, setPage] = useState<string>("");
     return (
         <>
             <Header />
             <Nav setPage={setPage} />
-            <Main page={page} />
+            <Main page={page} setPage={setPage} />
         </>
     );
 }

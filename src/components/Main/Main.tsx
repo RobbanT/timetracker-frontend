@@ -6,6 +6,7 @@ import Login from "../Login/";
 import SignUp from "../SignUp/";
 
 interface Props {
+    setPage: (page: string) => void;
     page: string;
 }
 
@@ -32,7 +33,7 @@ function Main(props: Props) {
                     Tidsrapportering: <TimeTracking />,
                     Medlemmar: <Members />,
                     "Logga in": <Login />,
-                    "Bli medlem": <SignUp />,
+                    "Bli medlem": <SignUp setPage={props.setPage} />,
                 }[props.page] || <Home />}
             </div>
         </main>

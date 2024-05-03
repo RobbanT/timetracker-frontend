@@ -2,13 +2,17 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { Member } from "../Main";
 import "./style.css";
 
+interface Props {
+    setPage: (page: string) => void;
+}
+
 interface Input {
     username: string;
     password: string;
     passwordConfirm: string;
 }
 
-function SignUp() {
+function SignUp(props: Props) {
     const [input, setInput] = useState<Input>({
         username: "",
         password: "",
@@ -37,6 +41,7 @@ function SignUp() {
                                 }),
                             });
                             alert(`Användaren "${input.username}" är nu registrerad!`);
+                            props.setPage("Hem");
                         }
                     });
                 });
