@@ -19,7 +19,7 @@ function Login() {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
             .then((res) => res.json())
             .then((data) => {
-                if (data == null) {
+                if (data === null) {
                     alert("NOOOOOO");
                 }
                 localStorage.setItem("user", JSON.stringify(data));
