@@ -40,8 +40,8 @@ function SignUp(props: Props) {
                                     password: input.password,
                                 }),
                             });
-                            alert(`Användaren "${input.username}" är nu registrerad!`);
                             props.setPage("Hem");
+                            alert(`Användaren "${input.username}" är nu registrerad!`);
                         }
                     });
                 });
