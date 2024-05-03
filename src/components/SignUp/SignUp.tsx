@@ -36,6 +36,7 @@ function SignUp() {
                                     password: input.password,
                                 }),
                             });
+                            alert(`Användaren "${input.username}" är nu registrerad!`);
                         }
                     });
                 });
