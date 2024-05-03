@@ -18,11 +18,11 @@ function Login() {
         event.preventDefault();
         alert(
             fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
-                .then((res) => {
-                    alert(res.body);
-                    res.json();
-                })
+                .then((res) => res.json())
                 .then((data) => {
+                    if (data == undefined) {
+                        alert("hej");
+                    }
                     localStorage.setItem("user", JSON.stringify(data));
                 })
         );
