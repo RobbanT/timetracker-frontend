@@ -30,19 +30,19 @@ function SignUp(props: Props) {
                             alert("En användare med detta användarnamn existerar redan. Försök igen!");
                             return;
                         }
-                        fetch("https://backend-eft68.ondigitalocean.app/user", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                                username: input.username,
-                                password: input.password,
-                            }),
-                        });
-                        alert(`Användaren "${input.username}" är nu registrerad!`);
-                        props.setPage("Hem");
                     });
+                    fetch("https://backend-eft68.ondigitalocean.app/user", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            username: input.username,
+                            password: input.password,
+                        }),
+                    });
+                    alert(`Användaren "${input.username}" är nu registrerad!`);
+                    props.setPage("Hem");
                 });
         } else {
             alert("Lösenorden stämmer inte överens. Försök igen!");
