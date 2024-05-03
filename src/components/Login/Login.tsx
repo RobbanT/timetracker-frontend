@@ -23,7 +23,7 @@ function Login() {
                     if (data == undefined) {
                         //alert("hej");
                     }
-                    localStorage.setItem("user", JSON.stringify(data));
+                    //localStorage.setItem("user", JSON.stringify(data));
                 })
         );
     };
