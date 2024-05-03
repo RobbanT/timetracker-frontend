@@ -16,16 +16,14 @@ function Login() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        alert(
-            fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data == undefined) {
-                        //alert("hej");
-                    }
-                    //localStorage.setItem("user", JSON.stringify(data));
-                })
-        );
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data == undefined) {
+                    alert("hej");
+                }
+                //localStorage.setItem("user", JSON.stringify(data));
+            });
     };
 
     return (
