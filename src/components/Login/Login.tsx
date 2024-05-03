@@ -30,7 +30,7 @@ function Login() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${inputs.username}`)
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${inputs.username}/${inputs.password}`)
             .then((res) => res.json())
             .then((data) => {
                 setMember(data);
