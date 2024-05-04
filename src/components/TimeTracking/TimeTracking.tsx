@@ -40,10 +40,9 @@ function TimeTracking() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                tasks: [
-                    { title: "1", date: "aaa", startTime: "adad", endTime: "adadad" },
-                    { title: "2", date: "aaa", startTime: "adad", endTime: "adadad" },
-                ],
+                username: loadUser().username,
+                password: loadUser().password,
+                tasks: loadUser().tasks,
             }),
         });
     };
