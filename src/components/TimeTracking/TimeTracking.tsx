@@ -41,11 +41,11 @@ function TimeTracking() {
             <form onSubmit={handleSubmit}>
                 <h3>Ny uppgift</h3>
                 <label>Användarnamn</label>
-                <input placeholder="Ange titel..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
+                <input placeholder="Ange titel..." value={task.title} name="title" onChange={handleChange} required></input>
                 <label>Starttid</label>
-                <input type="datetime-local" placeholder="Ange starttid..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
+                <input type="datetime-local" placeholder="Ange starttid..." value={task.title} name="startTime" onChange={handleChange} required></input>
                 <label>Sluttid</label>
-                <input type="datetime-local" placeholder="Ange sluttid..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
+                <input type="datetime-local" placeholder="Ange sluttid..." value={task.title} name="endTime" onChange={handleChange} required></input>
                 <button type="submit">Lägg till uppgift</button>
             </form>
             <div className="inner-container">
