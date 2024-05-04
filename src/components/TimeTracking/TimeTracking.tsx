@@ -34,6 +34,40 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
+        fetch("https://backend-eft68.ondigitalocean.app/user", {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                tasks: [
+                    {
+                        title: "Test",
+                        date: "2024-06-06",
+                        startTime: "12:30",
+                        endTime: "18:30",
+                    },
+                    {
+                        title: "Test2",
+                        date: "2024-06-06",
+                        startTime: "12:30",
+                        endTime: "18:30",
+                    },
+                    {
+                        title: "Test3",
+                        date: "2024-06-06",
+                        startTime: "12:30",
+                        endTime: "18:30",
+                    },
+                    {
+                        title: "Test4",
+                        date: "2024-06-06",
+                        startTime: "12:30",
+                        endTime: "18:30",
+                    },
+                ],
+            }),
+        });
     };
     return (
         <>
