@@ -40,32 +40,7 @@ function TimeTracking() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                tasks: [
-                    {
-                        title: "Test",
-                        date: "2024-06-06",
-                        startTime: "12:30",
-                        endTime: "18:30",
-                    },
-                    {
-                        title: "Test2",
-                        date: "2024-06-06",
-                        startTime: "12:30",
-                        endTime: "18:30",
-                    },
-                    {
-                        title: "Test3",
-                        date: "2024-06-06",
-                        startTime: "12:30",
-                        endTime: "18:30",
-                    },
-                    {
-                        title: "Test4",
-                        date: "2024-06-06",
-                        startTime: "12:30",
-                        endTime: "18:30",
-                    },
-                ],
+                tasks: [],
             }),
         });
     };
@@ -74,7 +49,7 @@ function TimeTracking() {
             <Calendar onChange={onChange} showNeighboringMonth={false} prev2Label={null} next2Label={null} minDate={new Date()} maxDate={new Date(2025, 0, 0)} minDetail={"month"} value={value} />
             <form onSubmit={handleSubmit}>
                 <h3>Ny uppgift</h3>
-                <label>Användarnamn</label>
+                <label>Titel</label>
                 <input placeholder="Ange titel..." value={task.title} name="title" onChange={handleChange} required></input>
                 <label>Starttid</label>
                 <input type="time" placeholder="Ange starttid..." value={task.startTime} name="startTime" onChange={handleChange} required></input>
