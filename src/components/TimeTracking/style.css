@@ -7,7 +7,6 @@
 .react-calendar__navigation {
     border: 1px solid #e5e5e5;
     border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 #root > main > div > div > div.react-calendar__navigation > button.react-calendar__navigation__arrow.react-calendar__navigation__prev-button {
