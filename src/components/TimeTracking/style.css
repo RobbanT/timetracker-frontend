@@ -61,6 +61,7 @@
     border: 1px solid #e5e5e5;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
 #root > main > div > div > div.react-calendar__viewContainer > div > div > div > div.react-calendar__month-view__days > button {
