@@ -40,9 +40,8 @@ function TimeTracking() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                username: loadUser().username,
-                password: loadUser().password,
-                tasks: null,
+                username: "input.username",
+                password: "input.password",
             }),
         });
     };
