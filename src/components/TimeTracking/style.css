@@ -132,3 +132,11 @@
     margin: 0;
     padding: 0;
 }
+
+form > h3 {
+    font: bold 15px Arial;
+    color: #606062;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
