@@ -24,7 +24,7 @@ function Nav(props: Props) {
             ) : (
                 <a
                     onClick={() => {
-                        alert(`Användare "${loadMember().username}" är utloggad!`);
+                        alert(`Användaren "${loadMember().username}" är nu utloggad!`);
                         removeMember();
                         props.setPage("Logga in");
                     }}

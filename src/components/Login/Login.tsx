@@ -24,7 +24,7 @@ function Login(props: Props) {
             .then((res) => res.json())
             .then((data) => {
                 localStorage.setItem("user", JSON.stringify(data));
-                alert(`Användare "${input.username}" är inloggad!`);
+                alert(`Användaren "${input.username}" är nu inloggad!`);
                 props.setPage("Hem");
             });
     };
