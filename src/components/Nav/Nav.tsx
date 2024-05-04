@@ -24,7 +24,7 @@ function Nav(props: Props) {
             ) : (
                 <a
                     onClick={() => {
-                        props.setPage("Hem");
+                        props.setPage("Logga in");
                         removeMember();
                     }}
                 >
