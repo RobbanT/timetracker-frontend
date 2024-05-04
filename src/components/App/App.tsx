@@ -5,7 +5,7 @@ import Main from "../Main/";
 import { useState } from "react";
 
 function App() {
-    const [page, setPage] = useState<string>("");
+    const [page, setPage] = useState<string>("Hem");
     return (
         <>
             <Header />
