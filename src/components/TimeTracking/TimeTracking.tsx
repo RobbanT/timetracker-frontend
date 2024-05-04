@@ -38,18 +38,16 @@ function TimeTracking() {
     return (
         <>
             <Calendar onChange={onChange} showNeighboringMonth={false} prev2Label={null} next2Label={null} minDate={new Date()} maxDate={new Date(2025, 0, 0)} minDetail={"month"} value={value} />
-            <div className="inner-container">
+            <form onSubmit={handleSubmit}>
                 <h3>Ny uppgift</h3>
-                <form onSubmit={handleSubmit}>
-                    <label>Användarnamn</label>
-                    <input placeholder="Ange titel..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
-                    <label>Starttid</label>
-                    <input type="datetime-local" placeholder="Ange starttid..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
-                    <label>Sluttid</label>
-                    <input type="datetime-local" placeholder="Ange sluttid..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
-                    <button type="submit">Lägg till uppgift</button>
-                </form>
-            </div>
+                <label>Användarnamn</label>
+                <input placeholder="Ange titel..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
+                <label>Starttid</label>
+                <input type="datetime-local" placeholder="Ange starttid..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
+                <label>Sluttid</label>
+                <input type="datetime-local" placeholder="Ange sluttid..." value={task.title} name="username" onChange={handleChange} minLength={5} maxLength={64} required></input>
+                <button type="submit">Lägg till uppgift</button>
+            </form>
             <div className="inner-container">
                 <h3>Uppgifter</h3>
                 <ul>
