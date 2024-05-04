@@ -24,7 +24,7 @@ function Nav(props: Props) {
             ) : (
                 <a
                     onClick={() => {
-                        props.setPage("");
+                        props.setPage("Hem");
                         removeMember();
                     }}
                 >
