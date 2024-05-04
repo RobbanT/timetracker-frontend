@@ -40,8 +40,9 @@ function TimeTracking() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                username: "input.username",
-                password: "input.password",
+                username: loadUser().username,
+                password: loadUser().password,
+                tasks: loadUser().tasks,
             }),
         });
         console.log("Skickad");
