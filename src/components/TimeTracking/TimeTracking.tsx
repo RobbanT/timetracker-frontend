@@ -44,6 +44,7 @@ function TimeTracking() {
                 password: "input.password",
             }),
         });
+        console.log("Skickad");
     };
     return (
         <>
