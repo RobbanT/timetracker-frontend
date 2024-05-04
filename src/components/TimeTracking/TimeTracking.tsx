@@ -39,7 +39,9 @@ function TimeTracking() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: localStorage.getItem("cart"),
+            body: JSON.stringify({
+                tasks: loadUser().tasks,
+            }),
         });
     };
     return (
