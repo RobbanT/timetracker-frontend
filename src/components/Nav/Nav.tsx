@@ -9,13 +9,28 @@ function loadMember(): Member {
     return JSON.parse(localStorage.getItem("user") as string);
 }
 
+function removeMember(): void {
+    return localStorage.removeItem("user");
+}
+
 function Nav(props: Props) {
     return (
         <nav>
             <a onClick={() => props.setPage("Hem")}>Hem</a>
             {loadMember() != null ? <a onClick={() => props.setPage("Tidsrapportering")}>Tidsrapportering</a> : null}
             {loadMember() != null && loadMember().username == "admin" ? <a onClick={() => props.setPage("Medlemmar")}>Medlemmar</a> : null}
-            <a onClick={() => props.setPage("Logga in")}>{loadMember() == null ? "Logga in" : "Logga ut"}</a>
+            {loadMember() == null ? (
+                <a onClick={() => props.setPage("Logga in")}>{"Logga in"}</a>
+            ) : (
+                <a
+                    onClick={() => {
+                        props.setPage("Hem");
+                        removeMember();
+                    }}
+                >
+                    {"Logga ut"}
+                </a>
+            )}
             {loadMember() != null ? null : <a onClick={() => props.setPage("Bli medlem")}>Bli medlem</a>}
         </nav>
     );
