@@ -34,6 +34,8 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
+        loadUser().tasks.push(task);
+        console.log(loadUser().tasks);
         fetch("https://backend-eft68.ondigitalocean.app/user", {
             method: "PATCH",
             headers: {
@@ -42,7 +44,7 @@ function TimeTracking() {
             body: JSON.stringify({
                 username: loadUser().username,
                 password: loadUser().password,
-                tasks: loadUser().tasks.push(task),
+                tasks: loadUser().tasks,
             }),
         })
             .then((res) => res.json())
