@@ -16,7 +16,7 @@ function Members() {
                     totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
                 }
             });
-            console.log(new Date(totalTime).getMinutes());
+            console.log(totalTime);
             return `${new Date(totalTime).getMinutes() / 60}:${new Date(totalTime).getMinutes() % 60}`;
         }
     }
