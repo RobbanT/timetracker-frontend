@@ -30,10 +30,12 @@ function SignUp(props: Props) {
                     username: input.username,
                     password: input.password,
                 }),
-            }).catch(() => {
-                alert(`Användaren "${input.username}" existerar redan. Försök igen!`);
-                return;
-            });
+            })
+                .then((res) => res.json())
+                .catch(() => {
+                    alert(`Användaren "${input.username}" existerar redan. Försök igen!`);
+                    return;
+                });
             alert(`Användaren "${input.username}" är nu registrerad!`);
             props.setPage("Hem");
         } else {
