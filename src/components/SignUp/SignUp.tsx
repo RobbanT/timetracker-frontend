@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Member } from "../Main";
 import "./style.css";
 
 interface Props {
@@ -22,28 +21,21 @@ function SignUp(props: Props) {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         if (input.password == input.passwordConfirm) {
-            fetch("https://backend-eft68.ondigitalocean.app/users")
-                .then((res) => res.json())
-                .then((data) => {
-                    data.map((member: Member) => {
-                        if (member.username == input.username) {
-                            alert("En användare med detta användarnamn existerar redan. Försök igen!");
-                            return;
-                        }
-                    });
-                    fetch("https://backend-eft68.ondigitalocean.app/user", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            username: input.username,
-                            password: input.password,
-                        }),
-                    });
-                    alert(`Användaren "${input.username}" är nu registrerad!`);
-                    props.setPage("Hem");
-                });
+            fetch("https://backend-eft68.ondigitalocean.app/user", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: input.username,
+                    password: input.password,
+                }),
+            }).catch(() => {
+                alert(`Användaren "${input.username}" existerar redan. Försök igen!`);
+                return;
+            });
+            alert(`Användaren "${input.username}" är nu registrerad!`);
+            props.setPage("Hem");
         } else {
             alert("Lösenorden stämmer inte överens. Försök igen!");
         }
