@@ -32,12 +32,11 @@ function SignUp(props: Props) {
                 }),
             })
                 .then((res) => res.json())
-                .catch(() => {
-                    alert(`Användaren "${input.username}" existerar redan. Försök igen!`);
-                    return;
-                });
-            alert(`Användaren "${input.username}" är nu registrerad!`);
-            props.setPage("Hem");
+                .then(() => {
+                    alert(`Användaren "${input.username}" är nu registrerad!`);
+                    props.setPage("Hem");
+                })
+                .catch(() => alert(`Användaren "${input.username}" existerar redan. Försök igen!`));
         } else {
             alert("Lösenorden stämmer inte överens. Försök igen!");
         }
