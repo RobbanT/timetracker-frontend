@@ -16,7 +16,7 @@ function Members() {
                     totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
                 }
             });
-            return `${totalTime / 60 / 1000 / 60}:${(totalTime / 60 / 1000 / 60) % 60}`;
+            return `${Math.floor(totalTime / 60 / 60 / 1000)}h:${Math.floor(Math.floor(totalTime / 60 / 60 / 1000) * 1000 * 60 * 60) / 1000 / 60}min`;
         }
     }
     const [members, setMembers] = useState<Member[]>([]);
