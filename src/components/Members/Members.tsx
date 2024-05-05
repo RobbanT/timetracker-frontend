@@ -17,7 +17,7 @@ function Members() {
                 }
             });
             const diffTime: Date = new Date(totalTime);
-            return `${diffTime.getMinutes() / 60}:${diffTime.getMinutes() % 60}`;
+            return `${totalTime / 60}:${diffTime.getMinutes() % 60}`;
         }
     }
     const [members, setMembers] = useState<Member[]>([]);
