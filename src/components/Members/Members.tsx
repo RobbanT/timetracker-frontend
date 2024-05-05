@@ -16,8 +16,8 @@ function Members() {
                     totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
                 }
             });
-            console.log(totalTime);
-            return `${new Date(totalTime).getMinutes() / 60}:${new Date(totalTime).getMinutes() % 60}`;
+            const diffTime: Date = new Date(totalTime);
+            return `${diffTime.getMinutes() / 60}:${diffTime.getMinutes() % 60}`;
         }
     }
     const [members, setMembers] = useState<Member[]>([]);
