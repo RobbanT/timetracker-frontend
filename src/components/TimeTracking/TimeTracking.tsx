@@ -34,8 +34,7 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        loadUser().tasks.push(task);
-        console.log(loadUser().tasks);
+        console.log(task);
         fetch("https://backend-eft68.ondigitalocean.app/user", {
             method: "PATCH",
             headers: {
