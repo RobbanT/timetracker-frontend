@@ -18,7 +18,7 @@ function Members() {
                     <img src={userIcon}></img>
                     <p>{member.username}</p>
                     <img src={logo} />
-                    <p>{new Date().toDateString()}</p>
+                    <p>{member.tasks.length == 0 ? "00:00" : "Qhej"}</p>
                 </li>
             ))}
         </ul>
