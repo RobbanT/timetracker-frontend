@@ -42,9 +42,14 @@ function TimeTracking() {
             body: JSON.stringify({
                 username: loadUser().username,
                 password: loadUser().password,
-                tasks: loadUser().tasks,
+                tasks: loadUser().tasks.push(task),
             }),
-        });
+        })
+            .then((res) => res.json())
+            .then(() => {
+                alert("Uppgiften är tillagd!");
+            })
+            .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
         console.log("Skickad");
     };
     return (
