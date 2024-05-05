@@ -2,9 +2,23 @@ import "./style.css";
 import userIcon from "../../assets/user-icon.svg";
 import logo from "../../assets/icon2.svg";
 import { useEffect, useState } from "react";
-import { Member } from "../Main";
+import { Task, Member } from "../Main";
 
 function Members() {
+    function getTotalTime(tasks: Task[]): string {
+        let totalTime: number = 0;
+
+        if (tasks.length == 0) {
+            return "00:00";
+        } else {
+            tasks.forEach((task: Task) => {
+                if (task.startTime != null && task.endTime != null) {
+                    totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
+                }
+            });
+            return `${new Date(totalTime).getMinutes() / 60}:${new Date(totalTime).getMinutes() % 60}`;
+        }
+    }
     const [members, setMembers] = useState<Member[]>([]);
     useEffect(() => {
         fetch("https://backend-eft68.ondigitalocean.app/users")
@@ -13,14 +27,16 @@ function Members() {
     }, []);
     return (
         <ul>
-            {members.map((member: Member) => (
-                <li key={member.username}>
-                    <img src={userIcon}></img>
-                    <p>{member.username}</p>
-                    <img src={logo} />
-                    <p>{member.tasks.length == 0 ? "00:00" : "Qhej"}</p>
-                </li>
-            ))}
+            {members.map((member: Member) => {
+                return (
+                    <li key={member.username}>
+                        <img src={userIcon}></img>
+                        <p>{member.username}</p>
+                        <img src={logo} />
+                        <p>{getTotalTime(member.tasks)}</p>
+                    </li>
+                );
+            })}
         </ul>
     );
 }
