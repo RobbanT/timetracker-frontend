@@ -27,7 +27,7 @@ function Login(props: Props) {
                 alert(`Användaren "${input.username}" är nu inloggad!`);
                 props.setPage("Hem");
             })
-            .catch((error) => console.log("error: ", error));
+            .catch(() => alert(`Användaren "${input.username}" med lösenordet "${input.password}" existerar inte. Försök igen!`));
     };
 
     return (
