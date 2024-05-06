@@ -1,16 +1,8 @@
-import { Member } from "../Main";
+import { loadMember } from "../Main";
 import "./style.css";
 
 interface Props {
     setPage: (page: string) => void;
-}
-
-function loadMember(): Member {
-    return JSON.parse(localStorage.getItem("user") as string);
-}
-
-function removeMember(): void {
-    return localStorage.removeItem("user");
 }
 
 function Nav(props: Props) {
@@ -25,7 +17,7 @@ function Nav(props: Props) {
                 <a
                     onClick={() => {
                         alert(`Användaren "${loadMember().username}" är nu utloggad!`);
-                        removeMember();
+                        localStorage.removeItem("user");
                         props.setPage("Logga in");
                     }}
                 >

@@ -22,6 +22,10 @@ export interface Member {
     tasks: Task[];
 }
 
+export function loadMember(): Member {
+    return JSON.parse(localStorage.getItem("user") as string);
+}
+
 function Main(props: Props) {
     return (
         <main>

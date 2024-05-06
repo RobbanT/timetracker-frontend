@@ -1,54 +1,39 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import type { Task } from "../Main/";
+import { loadMember } from "../Main/";
 import logo from "../../assets/icon2.svg";
 import "./style.css";
 
-interface Task {
-    title: string;
-    startTime: string;
-    endTime: string;
-}
-
-interface User {
-    username: string;
-    password: string;
-    tasks: Task[];
-}
-
-function loadUser(): User {
-    return JSON.parse(localStorage.getItem("user") as string);
-}
-
 function TimeTracking() {
-    function getTotalTime(task: Task): string {
-        let totalTime: number = 0;
-        totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
-        const hours = Math.floor(totalTime / 60 / 60 / 1000);
-        totalTime -= hours * 1000 * 60 * 60;
-        const minutes = Math.floor(totalTime / 1000 / 60);
-        return `${hours}h:${minutes}min`;
-    }
-
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
         endTime: "",
     });
+
+    const getTotalTime = (task: Task): string => {
+        const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
+        const hours = Math.floor(totalTime / 60 / 60 / 1000);
+        const minutes = Math.floor((totalTime - hours * 1000 * 60 * 60) / 1000 / 60);
+        return `${hours}h:${minutes}min`;
+    };
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        const tasks: Task[] = loadUser().tasks;
+        const tasks: Task[] = loadMember().tasks;
         tasks.push(task);
         console.log(tasks);
-        console.log(loadUser().tasks);
+        console.log(loadMember().tasks);
         fetch("https://backend-eft68.ondigitalocean.app/user", {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                username: loadUser().username,
-                password: loadUser().password,
+                username: loadMember().username,
+                password: loadMember().password,
                 tasks: [],
             }),
         })
@@ -77,8 +62,8 @@ function TimeTracking() {
             </form>
             <ul>
                 <h3>Uppgifter</h3>
-                {loadUser().tasks.length != 0 ? (
-                    loadUser().tasks.map((task: Task) => {
+                {loadMember().tasks.length != 0 ? (
+                    loadMember().tasks.map((task: Task) => {
                         return task.startTime == null || task.endTime != null ? (
                             <li key={task.title}>
                                 <form onSubmit={handleUpdate}>
@@ -97,8 +82,8 @@ function TimeTracking() {
             </ul>
             <ul>
                 <h3>Avslutade uppgifter</h3>
-                {loadUser().tasks.length != 0 ? (
-                    loadUser().tasks.map((task: Task) => {
+                {loadMember().tasks.length != 0 ? (
+                    loadMember().tasks.map((task: Task) => {
                         return task.startTime != null && task.endTime != null ? (
                             <li key={task.title}>
                                 <p>{task.title}</p>
