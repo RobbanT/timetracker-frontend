@@ -62,28 +62,28 @@ function TimeTracking() {
             </form>
             <ul>
                 <h3>Uppgifter</h3>
-                    {loadUser().tasks.map((task: Task) => (
-                        <li>
-                            <p>
-                                Titel
-                                <br />
-                                {task.title}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
+                {loadUser().tasks.map((task: Task) => (
+                    <li>
+                        <p>
+                            Titel
+                            <br />
+                            {task.title}
+                        </p>
+                    </li>
+                ))}
+            </ul>
             <ul>
-                          <h3>Avslutade Uppgifter</h3>
-                    {loadUser().tasks.map((task: Task) => (
-                        <li>
-                            <p>
-                                Titel
-                                <br />
-                                {task.title}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
+                <h3>Avslutade Uppgifter</h3>
+                {loadUser().tasks.map((task: Task) => (
+                    <li>
+                        <p>
+                            Titel
+                            <br />
+                            {task.title}
+                        </p>
+                    </li>
+                ))}
+            </ul>
         </>
     );
 }
