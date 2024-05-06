@@ -5,6 +5,15 @@ ul {
 ul > li {
     padding-top: 25px;
 }
-li > img {
+ul > li > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
+}
+
+ul > li > p {
+    font: bold large Arial;
+    text-align: center;
+    margin-top: 0;
 }

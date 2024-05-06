@@ -15,7 +15,7 @@ main {
     box-sizing: border-box;
 }
 
-.container h2 {
+.container > h2 {
     margin-top: 0;
     margin-bottom: 20px;
     font: bold 30px Arial;
@@ -47,18 +47,6 @@ ul > li {
     border: rgba(0, 0, 0, 0.1) solid 1px;
     width: 50%;
     box-sizing: border-box;
-}
-
-ul > li > img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-ul > li > p {
-    font: bold large Arial;
-    text-align: center;
-    margin-top: 0;
 }
 
 form {
