@@ -115,6 +115,10 @@
 }
 */
 
+ul {
+    height: 10vh;
+}
+
 form > h3 {
     padding: 0;
     margin: 0 0 20px 0;
