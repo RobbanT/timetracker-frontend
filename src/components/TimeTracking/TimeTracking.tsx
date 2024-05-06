@@ -29,6 +29,8 @@ function TimeTracking() {
         event.preventDefault();
         const tasks: Task[] = loadUser().tasks;
         tasks.push(task);
+        console.log(tasks);
+        console.log(loadUser().tasks);
         fetch("https://backend-eft68.ondigitalocean.app/user", {
             method: "PATCH",
             headers: {
