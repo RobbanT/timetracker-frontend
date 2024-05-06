@@ -39,7 +39,7 @@ function TimeTracking() {
             body: JSON.stringify({
                 username: loadUser().username,
                 password: loadUser().password,
-                tasks: JSON.stringify(tasks),
+                tasks: [tasks[0]],
             }),
         })
             .then((res) => res.json())
