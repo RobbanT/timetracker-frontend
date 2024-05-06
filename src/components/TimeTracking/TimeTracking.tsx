@@ -29,7 +29,6 @@ function TimeTracking() {
         event.preventDefault();
         const tasks: Task[] = loadUser().tasks;
         tasks.push(task);
-        console.log(tasks);
         fetch("https://backend-eft68.ondigitalocean.app/user", {
             method: "PATCH",
             headers: {
@@ -54,6 +53,10 @@ function TimeTracking() {
                 <h3>Ny uppgift</h3>
                 <label>Titel</label>
                 <input placeholder="Ange titel..." value={task.title} name="title" onChange={handleChange} required></input>
+                <label>Starttid</label>
+                <input type="datetime-local" placeholder="Ange starttid..." value={task.startTime} name="startTime" onChange={handleChange} required></input>
+                <label>Sluttid</label>
+                <input type="datetime-local" placeholder="Ange sluttid..." value={task.endTime} name="endTime" onChange={handleChange} required></input>
                 <button type="submit">Lägg till uppgift</button>
             </form>
             <ul>
@@ -87,8 +90,4 @@ function TimeTracking() {
 export default TimeTracking;
 
 /*
-                <label>Starttid</label>
-                <input type="datetime-local" placeholder="Ange starttid..." value={task.startTime} name="startTime" onChange={handleChange} required></input>
-                <label>Sluttid</label>
-                <input type="datetime-local" placeholder="Ange sluttid..." value={task.endTime} name="endTime" onChange={handleChange} required></input>
-                */
+ */
