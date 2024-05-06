@@ -115,6 +115,21 @@
 }
 */
 
+form > h3 {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font: bold large Arial;
+    text-align: center;
+}
+
+ul {
+    padding: 0;
+    overflow-y: auto;
+    padding: 0 2px 0 0;
+    height: 18vh;
+    border: rgba(0, 0, 0, 0.1) solid 1px;
+}
+
 ul > h3 {
     padding: 0;
     margin: 0 0 20px 0;
