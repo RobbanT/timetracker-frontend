@@ -114,3 +114,9 @@
     background-color: #3376aa;
 }
 */
+
+form > h3 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
