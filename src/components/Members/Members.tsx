@@ -7,7 +7,6 @@ import { Task, Member } from "../Main";
 function Members() {
     function getTotalTime(tasks: Task[]): string {
         let totalTime: number = 0;
-
         if (tasks.length == 0) {
             return "00:00";
         } else {
@@ -43,4 +42,5 @@ function Members() {
         </ul>
     );
 }
+
 export default Members;

@@ -101,6 +101,3 @@ function TimeTracking() {
 }
 
 export default TimeTracking;
-
-/*
- */
