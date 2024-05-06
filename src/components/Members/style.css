@@ -1,5 +1,6 @@
 ul > li {
     padding-top: 25px;
+    height: 60vh;
 }
 li > img {
     margin-bottom: 10px;
