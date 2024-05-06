@@ -7,7 +7,6 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 interface Task {
     title: string;
-    date: string;
     startTime: string;
     endTime: string;
 }
@@ -25,7 +24,6 @@ function loadUser(): User {
 function TimeTracking() {
     const [task, setTask] = useState<Task>({
         title: "",
-        date: "",
         startTime: "",
         endTime: "",
     });

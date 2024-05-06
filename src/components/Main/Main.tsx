@@ -12,7 +12,6 @@ interface Props {
 
 export interface Task {
     title: string;
-    date: string;
     startTime: string;
     endTime: string;
 }

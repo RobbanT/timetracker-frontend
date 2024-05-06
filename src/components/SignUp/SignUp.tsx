@@ -53,4 +53,5 @@ function SignUp(props: Props) {
         </form>
     );
 }
+
 export default SignUp;
