@@ -60,9 +60,8 @@ function TimeTracking() {
                 <input type="datetime-local" placeholder="Ange sluttid..." value={task.endTime} name="endTime" onChange={handleChange} required></input>
                 <button type="submit">Lägg till uppgift</button>
             </form>
-            <div className="inner-container">
+            <ul>
                 <h3>Uppgifter</h3>
-                <ul>
                     {loadUser().tasks.map((task: Task) => (
                         <li>
                             <p>
@@ -73,10 +72,8 @@ function TimeTracking() {
                         </li>
                     ))}
                 </ul>
-            </div>
-            <div className="inner-container">
-                <h3>Avslutade Uppgifter</h3>
-                <ul>
+            <ul>
+                          <h3>Avslutade Uppgifter</h3>
                     {loadUser().tasks.map((task: Task) => (
                         <li>
                             <p>
@@ -87,7 +84,6 @@ function TimeTracking() {
                         </li>
                     ))}
                 </ul>
-            </div>
         </>
     );
 }
