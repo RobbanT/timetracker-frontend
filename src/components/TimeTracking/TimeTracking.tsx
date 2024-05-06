@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import logo from "../../assets/icon2.svg";
 import "./style.css";
 
 interface Task {
@@ -18,6 +19,15 @@ function loadUser(): User {
 }
 
 function TimeTracking() {
+    function getTotalTime(task: Task): string {
+        let totalTime: number = 0;
+        totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
+        const hours = Math.floor(totalTime / 60 / 60 / 1000);
+        totalTime -= hours * 1000 * 60 * 60;
+        const minutes = Math.floor(totalTime / 1000 / 60);
+        return `${hours}h:${minutes}min`;
+    }
+
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
@@ -48,6 +58,11 @@ function TimeTracking() {
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
+
+    const handleUpdate = (event: FormEvent) => {
+        event.preventDefault();
+    };
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -62,27 +77,39 @@ function TimeTracking() {
             </form>
             <ul>
                 <h3>Uppgifter</h3>
-                {loadUser().tasks.map((task: Task) => (
-                    <li>
-                        <p>
-                            Titel
-                            <br />
-                            {task.title}
-                        </p>
-                    </li>
-                ))}
+                {loadUser().tasks.length != 0 ? (
+                    loadUser().tasks.map((task: Task) => {
+                        return task.startTime == null || task.endTime != null ? (
+                            <li key={task.title}>
+                                <form onSubmit={handleUpdate}>
+                                    <p>{task.title}</p>
+                                    <img src={logo} />
+                                    <p>{getTotalTime(task)}</p>
+                                    <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
+                                </form>
+                                <button>Ta bort</button>
+                            </li>
+                        ) : null;
+                    })
+                ) : (
+                    <p>Inga uppgifter existerar.</p>
+                )}
             </ul>
             <ul>
-                <h3>Avslutade Uppgifter</h3>
-                {loadUser().tasks.map((task: Task) => (
-                    <li>
-                        <p>
-                            Titel
-                            <br />
-                            {task.title}
-                        </p>
-                    </li>
-                ))}
+                <h3>Avslutade uppgifter</h3>
+                {loadUser().tasks.length != 0 ? (
+                    loadUser().tasks.map((task: Task) => {
+                        return task.startTime != null && task.endTime != null ? (
+                            <li key={task.title}>
+                                <p>{task.title}</p>
+                                <img src={logo} />
+                                <p>{getTotalTime(task)}</p>
+                            </li>
+                        ) : null;
+                    })
+                ) : (
+                    <p>Inga avslutade uppgifter existerar.</p>
+                )}
             </ul>
         </>
     );
