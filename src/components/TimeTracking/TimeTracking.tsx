@@ -30,7 +30,7 @@ function TimeTracking() {
         })
             .then((res) => res.json())
             .then(() => {
-                alert("Uppgiften är tillagd!");
+                alert(`Uppgiften "${task.title}" är tillagd!`);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
@@ -45,6 +45,7 @@ function TimeTracking() {
                 <h3>Ny uppgift</h3>
                 <label>Titel</label>
                 <input placeholder="Ange titel..." value={task.title} name="title" onChange={handleChange} required></input>
+                <button type="submit">Lägg till uppgift</button>
             </form>
             <ul>
                 <h3>Uppgifter</h3>
@@ -57,8 +58,8 @@ function TimeTracking() {
                                     <img src={logo} />
                                     <p>{getTotalTime(task)}</p>
                                     <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
+                                    <button>Ta bort</button>
                                 </form>
-                                <button>Ta bort</button>
                             </li>
                         ) : null;
                     })
@@ -87,3 +88,10 @@ function TimeTracking() {
 }
 
 export default TimeTracking;
+
+/*
+                <label>Starttid</label>
+                <input type="datetime-local" placeholder="Ange starttid..." value={task.startTime} name="startTime" onChange={handleChange} required></input>
+                <label>Sluttid</label>
+                <input type="datetime-local" placeholder="Ange sluttid..." value={task.endTime} name="endTime" onChange={handleChange} required></input>
+*/
