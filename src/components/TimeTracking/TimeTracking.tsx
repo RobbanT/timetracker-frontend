@@ -22,7 +22,7 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/${loadMember().username}/${task.title}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
