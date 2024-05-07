@@ -22,20 +22,11 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        const tasks: Task[] = loadMember().tasks;
-        tasks.push(task);
-        console.log(tasks);
-        console.log(loadMember().tasks);
-        fetch("https://backend-eft68.ondigitalocean.app/user", {
-            method: "PATCH",
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${task.title}`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                username: loadMember().username,
-                password: loadMember().password,
-                tasks: [],
-            }),
         })
             .then((res) => res.json())
             .then(() => {
