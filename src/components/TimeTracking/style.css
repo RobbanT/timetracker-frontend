@@ -164,6 +164,11 @@ ul > p {
     color: #555555;
 }
 
+.tasks {
+    padding: 25px;
+    height: 40vh;
+}
+
 .task > button {
     width: 48%;
     margin: 0 1%;

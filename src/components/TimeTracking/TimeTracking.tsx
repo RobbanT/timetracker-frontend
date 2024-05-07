@@ -48,7 +48,7 @@ function TimeTracking() {
             </form>
             <div className="inner-container">
                 <h3>Uppgifter</h3>
-                <ul>
+                <ul className="tasks">
                     {loadMember().tasks.length != 0 ? (
                         loadMember().tasks.map((task: Task) => {
                             return task.endTime == null ? (
@@ -73,23 +73,25 @@ function TimeTracking() {
                     )}
                 </ul>
             </div>
-            <ul>
+            <div className="inner-container">
                 <h3>Avslutade uppgifter</h3>
-                {loadMember().tasks.length != 0 ? (
-                    loadMember().tasks.map((task: Task) => {
-                        return task.endTime != null ? (
-                            <li key={task.title}>
-                                <h4>Titel</h4>
-                                <p>{task.title}</p>
-                                <h4>Påbörjad</h4>
-                                <p>{getTotalTime(task)}</p>
-                            </li>
-                        ) : null;
-                    })
-                ) : (
-                    <p>Inga avslutade uppgifter existerar.</p>
-                )}
-            </ul>
+                <ul className="tasks">
+                    {loadMember().tasks.length != 0 ? (
+                        loadMember().tasks.map((task: Task) => {
+                            return task.endTime != null ? (
+                                <li key={task.title}>
+                                    <h4>Titel</h4>
+                                    <p>{task.title}</p>
+                                    <h4>Påbörjad</h4>
+                                    <p>{getTotalTime(task)}</p>
+                                </li>
+                            ) : null;
+                        })
+                    ) : (
+                        <p>Inga avslutade uppgifter existerar.</p>
+                    )}
+                </ul>
+            </div>
         </>
     );
 }
