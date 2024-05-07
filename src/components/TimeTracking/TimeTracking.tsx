@@ -1,7 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import type { Task } from "../Main/";
 import { loadMember } from "../Main/";
-import logo from "../../assets/icon2.svg";
 import "./style.css";
 
 function TimeTracking() {
@@ -51,12 +50,17 @@ function TimeTracking() {
                 <h3>Uppgifter</h3>
                 {loadMember().tasks.length != 0 ? (
                     loadMember().tasks.map((task: Task) => {
-                        return task.startTime == null || task.endTime != null ? (
+                        return task.endTime != null ? (
                             <li key={task.title}>
                                 <form className="task" onSubmit={handleUpdate}>
+                                    <h4>Titel</h4>
                                     <p>{task.title}</p>
-                                    <img src={logo} />
-                                    <p>{getTotalTime(task)}</p>
+                                    {task.endTime != null ? (
+                                        <>
+                                            <h4>Påbörjad</h4>
+                                            <p>{getTotalTime(task)}</p>
+                                        </>
+                                    ) : null}
                                     <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
                                     <button>Ta bort</button>
                                 </form>
@@ -73,8 +77,9 @@ function TimeTracking() {
                     loadMember().tasks.map((task: Task) => {
                         return task.startTime != null && task.endTime != null ? (
                             <li key={task.title}>
+                                <h4>Titel</h4>
                                 <p>{task.title}</p>
-                                <img src={logo} />
+                                <h4>Påbörjad</h4>
                                 <p>{getTotalTime(task)}</p>
                             </li>
                         ) : null;

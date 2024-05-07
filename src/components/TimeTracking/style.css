@@ -137,6 +137,16 @@ ul > p {
     color: #555555;
     font: lighter medium Arial;
 }
+
 .task > button {
     width: 50%;
+}
+
+.task > p {
+    text-align: center;
+}
+
+.task > h4 {
+    text-align: center;
+    font: bold medium Arial;
 }
