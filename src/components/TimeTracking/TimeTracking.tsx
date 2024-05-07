@@ -46,31 +46,33 @@ function TimeTracking() {
                 <input placeholder="Ange titel..." value={task.title} name="title" onChange={handleChange} required></input>
                 <button type="submit">Lägg till uppgift</button>
             </form>
-            <ul>
+            <div className="container">
                 <h3>Uppgifter</h3>
-                {loadMember().tasks.length != 0 ? (
-                    loadMember().tasks.map((task: Task) => {
-                        return task.endTime == null ? (
-                            <li key={task.title}>
-                                <form className="task" onSubmit={handleUpdate}>
-                                    <h4>Titel</h4>
-                                    <p>{task.title}</p>
-                                    {task.endTime != null ? (
-                                        <>
-                                            <h4>Påbörjad</h4>
-                                            <p>{getTotalTime(task)}</p>
-                                        </>
-                                    ) : null}
-                                    <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
-                                    <button>Ta bort</button>
-                                </form>
-                            </li>
-                        ) : null;
-                    })
-                ) : (
-                    <p>Inga uppgifter existerar.</p>
-                )}
-            </ul>
+                <ul>
+                    {loadMember().tasks.length != 0 ? (
+                        loadMember().tasks.map((task: Task) => {
+                            return task.endTime == null ? (
+                                <li key={task.title}>
+                                    <form className="task" onSubmit={handleUpdate}>
+                                        <h4>Titel</h4>
+                                        <p>{task.title}</p>
+                                        {task.endTime != null ? (
+                                            <>
+                                                <h4>Påbörjad</h4>
+                                                <p>{getTotalTime(task)}</p>
+                                            </>
+                                        ) : null}
+                                        <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
+                                        <button>Ta bort</button>
+                                    </form>
+                                </li>
+                            ) : null;
+                        })
+                    ) : (
+                        <p>Inga uppgifter existerar.</p>
+                    )}
+                </ul>
+            </div>
             <ul>
                 <h3>Avslutade uppgifter</h3>
                 {loadMember().tasks.length != 0 ? (
