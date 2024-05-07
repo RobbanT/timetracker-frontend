@@ -46,7 +46,7 @@ function TimeTracking() {
                 <input placeholder="Ange titel..." value={task.title} name="title" onChange={handleChange} required></input>
                 <button type="submit">Lägg till uppgift</button>
             </form>
-            <div className="container">
+            <div className="inner-container">
                 <h3>Uppgifter</h3>
                 <ul>
                     {loadMember().tasks.length != 0 ? (
