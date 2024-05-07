@@ -1,10 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import type { Task } from "../Main/";
+import type { Member, Task } from "../Main/";
 import { loadMember } from "../Main/";
 import "./style.css";
 
 function TimeTracking() {
-    const [, rerender] = useState(false);
+    //const [, rerender] = useState(false);
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
@@ -31,7 +31,9 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                rerender(true);
+                const member: Member = loadMember();
+                member.tasks.push(task);
+                localStorage.setItem("user", JSON.stringify(member));
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
