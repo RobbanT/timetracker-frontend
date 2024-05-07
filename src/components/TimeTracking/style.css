@@ -137,3 +137,7 @@ ul > p {
     color: #555555;
     font: lighter medium Arial;
 }
+
+form > button {
+    width: 50%;
+}
