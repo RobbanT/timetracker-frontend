@@ -53,7 +53,7 @@ function TimeTracking() {
                     loadMember().tasks.map((task: Task) => {
                         return task.startTime == null || task.endTime != null ? (
                             <li key={task.title}>
-                                <form onSubmit={handleUpdate}>
+                                <form className="task" onSubmit={handleUpdate}>
                                     <p>{task.title}</p>
                                     <img src={logo} />
                                     <p>{getTotalTime(task)}</p>

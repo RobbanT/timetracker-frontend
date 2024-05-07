@@ -137,7 +137,6 @@ ul > p {
     color: #555555;
     font: lighter medium Arial;
 }
-
-form > button {
+.task > button {
     width: 50%;
 }
