@@ -138,6 +138,13 @@ ul > p {
     font: lighter medium Arial;
 }
 
+.task {
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: 0;
+    border: 0;
+}
+
 .task > button {
     width: 48%;
     margin: 0 1%;
