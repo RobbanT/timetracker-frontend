@@ -4,6 +4,7 @@ import { loadMember } from "../Main/";
 import "./style.css";
 
 function TimeTracking() {
+    const [, rerender] = useState(false);
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
@@ -30,6 +31,7 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
+                rerender(true);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
