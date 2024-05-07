@@ -8,7 +8,7 @@ function Members() {
     function getTotalTime(tasks: Task[]): string {
         let totalTime: number = 0;
         if (tasks.length == 0) {
-            return "00:00";
+            return "0h:0min";
         } else {
             tasks.forEach((task: Task) => {
                 if (task.startTime != null && task.endTime != null) {
