@@ -139,18 +139,18 @@ ul > p {
 }
 
 .task > button {
-    width: 46%;
+    width: 48%;
     margin: 0 1%;
 }
 
 .task > p {
-    margin: 0;
+    margin-bottom: 20px;
     padding: 0;
     text-align: center;
 }
 
 .task > h4 {
-    margin: 0;
+    margin-bottom: 10px;
     padding: 0;
     text-align: center;
     font: bold medium Arial;
