@@ -141,8 +141,8 @@ ul > p {
 .task {
     padding: 0px;
     border-radius: 0px;
-    box-shadow: 0;
-    border: 0;
+    box-shadow: none;
+    border: none;
 }
 
 .task > button {
