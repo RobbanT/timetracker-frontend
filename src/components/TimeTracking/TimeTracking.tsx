@@ -21,8 +21,10 @@ function TimeTracking() {
     useEffect(() => {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks`)
             .then((res) => res.json())
-            .then((data) => setTasks(data));
-        console.log(tasks);
+            .then((data) => {
+                setTasks(data);
+                console.log(data);
+            });
     }, []);
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
