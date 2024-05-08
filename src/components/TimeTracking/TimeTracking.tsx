@@ -82,7 +82,7 @@ function TimeTracking() {
                     {loadMember().tasks.length != 0 ? (
                         loadMember().tasks.map((task: Task) => {
                             return task.endTime != null ? (
-                                <li className="task" key={task.title}>
+                                <li className="ended-task" key={task.title}>
                                     <form>
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
