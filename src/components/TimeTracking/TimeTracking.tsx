@@ -4,13 +4,13 @@ import { loadUser } from "../Main/";
 import "./style.css";
 
 function TimeTracking() {
-    const [render, rerender] = useState(false);
     const getTotalTime = (task: Task): string => {
         const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
         const hours = Math.floor(totalTime / 60 / 60 / 1000);
         const minutes = Math.floor((totalTime - hours * 1000 * 60 * 60) / 1000 / 60);
         return `${hours}h:${minutes}min`;
     };
+    const [render, rerender] = useState(false);
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
     const [task, setTask] = useState<Task>({
         title: "",
@@ -34,13 +34,13 @@ function TimeTracking() {
         })
             .then((res) => res.json())
             .then(() => {
-                rerender(!render);
                 alert(`Uppgiften "${task.title}" är tillagd!`);
+                console.log(render);
+                rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
     const handleRemove = () => {
-        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`);
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
             method: "DELETE",
             headers: {
