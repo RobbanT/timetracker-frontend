@@ -1,24 +1,30 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import type { Member, Task } from "../Main/";
 import { loadMember } from "../Main/";
 import "./style.css";
 
 function TimeTracking() {
-    //const [, rerender] = useState(false);
-    const [task, setTask] = useState<Task>({
-        title: "",
-        startTime: "",
-        endTime: "",
-    });
-
     const getTotalTime = (task: Task): string => {
         const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
         const hours = Math.floor(totalTime / 60 / 60 / 1000);
         const minutes = Math.floor((totalTime - hours * 1000 * 60 * 60) / 1000 / 60);
         return `${hours}h:${minutes}min`;
     };
-
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
+    const [tasks, setTasks] = useState<Task[]>([]);
+    useEffect(() => {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`)
+            .then((res) => res.json())
+            .then((data) => setTasks(data));
+        const member: Member = loadMember();
+        member.tasks = tasks;
+        console.log("hej på dig.");
+    });
+    const [task, setTask] = useState<Task>({
+        title: "",
+        startTime: "",
+        endTime: "",
+    });
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
@@ -61,7 +67,7 @@ function TimeTracking() {
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
                                         <h4>Påbörjad</h4>
-                                        {<p>{task.endTime != null ? getTotalTime(task) : "Ej påbörjad"}</p>}
+                                        {<p>{task.endTime != null ? getTotalTime(task) : "--:--"}</p>}
                                         <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
                                         <button>Ta bort</button>
                                     </form>
