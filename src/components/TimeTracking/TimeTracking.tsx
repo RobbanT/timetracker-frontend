@@ -54,14 +54,14 @@ function TimeTracking() {
                 <ul className="tasks">
                     {loadMember().tasks.length != 0 ? (
                         loadMember().tasks.map((task: Task) => {
-                            return task.endTime == null ? (
+                            return task.endTime == "" ? (
                                 <li className="task" key={task.title}>
                                     <form onSubmit={handleUpdate}>
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
                                         <h4>Påbörjad</h4>
-                                        {<p>{task.startTime != null ? getTotalTime(task) : "--:--"}</p>}
-                                        <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
+                                        {<p>{task.startTime != "" ? getTotalTime(task) : "--:--"}</p>}
+                                        <button type="submit">{task.startTime == "" ? "Påbörja" : "Avsluta"}</button>
                                         <button>Ta bort</button>
                                     </form>
                                 </li>
@@ -77,7 +77,7 @@ function TimeTracking() {
                 <ul className="tasks">
                     {loadMember().tasks.length != 0 ? (
                         loadMember().tasks.map((task: Task) => {
-                            return task.endTime != null ? (
+                            return task.endTime != "" ? (
                                 <li className="task ended-task" key={task.title}>
                                     <form>
                                         <h4>Titel</h4>
