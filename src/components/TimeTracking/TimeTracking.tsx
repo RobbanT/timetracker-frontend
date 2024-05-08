@@ -34,8 +34,8 @@ function TimeTracking() {
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "${task.title}" är tillagd!`);
                 rerender(!render);
+                alert(`Uppgiften "${task.title}" är tillagd!`);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
