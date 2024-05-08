@@ -21,9 +21,12 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`).then((res) => {
-            console.log(res);
-        });
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            });
+
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
             method: "POST",
             headers: {
