@@ -16,9 +16,7 @@ function Login(props: Props) {
         username: "",
         password: "",
     });
-
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setInput((values) => ({ ...values, [event.target.name]: event.target.value }));
-
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
@@ -32,7 +30,6 @@ function Login(props: Props) {
             })
             .catch(() => alert(`Användaren "${input.username}" med lösenordet "${input.password}" existerar inte. Försök igen!`));
     };
-
     return (
         <form onSubmit={handleSubmit}>
             <label>Användarnamn</label>

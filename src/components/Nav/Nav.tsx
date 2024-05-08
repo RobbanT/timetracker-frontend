@@ -1,5 +1,5 @@
-import { loadUser } from "../Main";
 import "./style.css";
+import { loadUser } from "../Main";
 
 interface Props {
     setPage: (page: string) => void;

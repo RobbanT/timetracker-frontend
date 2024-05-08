@@ -1,5 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from "react";
 import "./style.css";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface Props {
     setPage: (page: string) => void;
