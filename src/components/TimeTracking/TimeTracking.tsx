@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import type { Member, Task } from "../Main/";
 import { loadMember } from "../Main/";
 import "./style.css";
@@ -12,12 +12,7 @@ function TimeTracking() {
     };
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
     //const [tasks, setTasks] = useState<Task[]>([]);
-    useEffect(() => {
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`)
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`);
-    });
+
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
@@ -26,6 +21,9 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`).then((res) => {
+            console.log(res);
+        });
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
             method: "POST",
             headers: {
