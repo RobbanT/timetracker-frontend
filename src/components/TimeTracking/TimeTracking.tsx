@@ -36,7 +36,7 @@ function TimeTracking() {
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
                 console.log(render);
-                rerender(!render);
+                rerender(render == false ? true : false);
                 console.log(render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
