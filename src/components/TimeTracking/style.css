@@ -60,7 +60,11 @@ ul > p {
 }
 
 ended-task {
-    background-color: #e5e5e5;
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    border: none;
+    background-color: red;
     padding-bottom: 5px;
 }
 
