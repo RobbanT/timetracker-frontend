@@ -22,6 +22,7 @@ function Login(props: Props) {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
             .then((res) => res.json())
             .then((data) => {
+                console.log((data as Member).username);
                 localStorage.setItem("user", (data as Member).username);
                 alert(`Användaren "${input.username}" är nu inloggad!`);
                 props.setPage("Hem");
