@@ -11,12 +11,11 @@ function TimeTracking() {
         return `${hours}h:${minutes}min`;
     };
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
-    const [tasks, setTasks] = useState<Task[]>([]);
+    //const [tasks, setTasks] = useState<Task[]>([]);
     useEffect(() => {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`)
             .then((res) => res.json())
-            .then((data) => setTasks(data));
-        console.log(tasks);
+            .then((data) => console.log(data));
     });
     const [task, setTask] = useState<Task>({
         title: "",
