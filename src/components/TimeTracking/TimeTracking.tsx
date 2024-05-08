@@ -39,6 +39,7 @@ function TimeTracking() {
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
     const handleRemove = () => {
+        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`);
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
             method: "DELETE",
             headers: {
