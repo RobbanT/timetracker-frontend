@@ -59,8 +59,8 @@ ul > p {
     text-align: center;
 }
 
-.ended-task {
-    background-color: red;
+.ended-task > form {
+    background-color: #e5e5e5;
     padding-bottom: 5px;
 }
 
