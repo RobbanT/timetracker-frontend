@@ -1,5 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import type { Member, Task } from "../Main/";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import type { Task } from "../Main/";
 import { loadMember } from "../Main/";
 import "./style.css";
 
@@ -17,7 +17,12 @@ function TimeTracking() {
         startTime: "",
         endTime: "",
     });
-
+    const [tasks, setTasks] = useState<Task[]>([]);
+    useEffect(() => {
+        fetch("https://backend-eft68.ondigitalocean.app/users")
+            .then((res) => res.json())
+            .then((data) => setTasks(data));
+    }, []);
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
@@ -29,14 +34,23 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                const member: Member = loadMember();
-                member.tasks.push(task);
-                localStorage.setItem("user", JSON.stringify(member));
                 rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
-
+    const handleRemove = () => {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then(() => {
+                alert(`Uppgiften "${task.title}" är borttagen!`);
+                rerender(!render);
+            });
+    };
     const handleUpdate = (event: FormEvent) => {
         event.preventDefault();
     };
@@ -52,8 +66,8 @@ function TimeTracking() {
             <div className="inner-container">
                 <h3>Uppgifter</h3>
                 <ul className="tasks">
-                    {loadMember().tasks.length != 0 ? (
-                        loadMember().tasks.map((task: Task) => {
+                    {tasks.length != 0 ? (
+                        tasks.map((task: Task) => {
                             return task.endTime == "" ? (
                                 <li className="task" key={task.title}>
                                     <form onSubmit={handleUpdate}>
@@ -62,7 +76,7 @@ function TimeTracking() {
                                         <h4>Påbörjad</h4>
                                         {<p>{task.startTime != "" ? getTotalTime(task) : "--:--"}</p>}
                                         <button type="submit">{task.startTime == "" ? "Påbörja" : "Avsluta"}</button>
-                                        <button>Ta bort</button>
+                                        <button onClick={handleRemove}>Ta bort</button>
                                     </form>
                                 </li>
                             ) : null;
@@ -75,8 +89,8 @@ function TimeTracking() {
             <div className="inner-container">
                 <h3>Avslutade uppgifter</h3>
                 <ul className="tasks">
-                    {loadMember().tasks.length != 0 ? (
-                        loadMember().tasks.map((task: Task) => {
+                    {tasks.length != 0 ? (
+                        tasks.map((task: Task) => {
                             return task.endTime != "" ? (
                                 <li className="task ended-task" key={task.title}>
                                     <form>
