@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import type { Task } from "../Main/";
-import { loadMember } from "../Main/";
+import { loadUser } from "../Main/";
 import "./style.css";
 
 function TimeTracking() {
@@ -20,13 +20,13 @@ function TimeTracking() {
     const [tasks, setTasks] = useState<Task[]>([]);
     useEffect(() => {
         console.log("useEffect");
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks`)
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/tasks`)
             .then((res) => res.json())
             .then((data) => setTasks(data));
     }, []);
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,8 +40,8 @@ function TimeTracking() {
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
     const handleRemove = () => {
-        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`);
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
+        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`);
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

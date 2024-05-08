@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import type { Member } from "../Main/";
 
 interface Props {
     setPage: (page: string) => void;
@@ -23,9 +22,7 @@ function Login(props: Props) {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
             .then((res) => res.json())
             .then((data) => {
-                const member: Member = data;
-                member.tasks = [];
-                localStorage.setItem("user", JSON.stringify(member));
+                localStorage.setItem("user", JSON.stringify(data));
                 alert(`Användaren "${input.username}" är nu inloggad!`);
                 props.setPage("Hem");
             })

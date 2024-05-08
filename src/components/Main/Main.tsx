@@ -16,13 +16,13 @@ export interface Task {
     endTime: string;
 }
 
-export interface Member {
+export interface User {
     username: string;
     password: string;
     tasks: Task[];
 }
 
-export function loadMember(): Member {
+export function loadUser(): User {
     return JSON.parse(localStorage.getItem("user") as string);
 }
 

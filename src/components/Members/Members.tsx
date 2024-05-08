@@ -2,7 +2,7 @@ import "./style.css";
 import userIcon from "../../assets/user-icon.svg";
 import logo from "../../assets/icon2.svg";
 import { useEffect, useState } from "react";
-import { Task, Member } from "../Main";
+import { Task, User } from "../Main";
 
 function Members() {
     function getTotalTime(tasks: Task[]): string {
@@ -21,7 +21,7 @@ function Members() {
             return `${hours}h:${minutes}min`;
         }
     }
-    const [members, setMembers] = useState<Member[]>([]);
+    const [members, setMembers] = useState<User[]>([]);
     useEffect(() => {
         fetch("https://backend-eft68.ondigitalocean.app/users")
             .then((res) => res.json())
@@ -29,7 +29,7 @@ function Members() {
     }, []);
     return (
         <ul>
-            {members.map((member: Member) => {
+            {members.map((member: User) => {
                 return (
                     <li key={member.username}>
                         <img src={userIcon}></img>
