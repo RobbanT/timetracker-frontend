@@ -4,6 +4,7 @@ import { loadMember } from "../Main/";
 import "./style.css";
 
 function TimeTracking() {
+    const [render, rerender] = useState(false);
     const getTotalTime = (task: Task): string => {
         const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
         const hours = Math.floor(totalTime / 60 / 60 / 1000);
@@ -11,8 +12,6 @@ function TimeTracking() {
         return `${hours}h:${minutes}min`;
     };
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
-    //const [tasks, setTasks] = useState<Task[]>([]);
-
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
@@ -21,10 +20,6 @@ function TimeTracking() {
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks`)
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/task/${task.title}`, {
             method: "POST",
             headers: {
@@ -37,6 +32,7 @@ function TimeTracking() {
                 const member: Member = loadMember();
                 member.tasks.push(task);
                 localStorage.setItem("user", JSON.stringify(member));
+                rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
