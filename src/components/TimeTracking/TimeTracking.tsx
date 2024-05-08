@@ -19,6 +19,7 @@ function TimeTracking() {
     });
     const [tasks, setTasks] = useState<Task[]>([]);
     useEffect(() => {
+        console.log("Uppdaterar");
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/tasks`)
             .then((res) => res.json())
             .then((data) => setTasks(data));
