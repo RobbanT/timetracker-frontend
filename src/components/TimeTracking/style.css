@@ -48,18 +48,18 @@ ul > p {
     height: 20vh;
 }
 
-.tasks .task > button {
+.tasks .task > form > button {
     width: 48%;
     margin: 10px 1% 0px 1%;
 }
 
-.task > p {
+.task > form > p {
     margin: 2px 0 20px 0;
     padding: 0;
     text-align: center;
 }
 
-.task > h4 {
+.task > form > h4 {
     margin: 0 0 2px 0;
     padding: 0;
     text-align: center;
