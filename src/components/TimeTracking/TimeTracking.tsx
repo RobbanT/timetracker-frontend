@@ -59,8 +59,8 @@ function TimeTracking() {
                     {loadMember().tasks.length != 0 ? (
                         loadMember().tasks.map((task: Task) => {
                             return task.endTime == null ? (
-                                <li key={task.title}>
-                                    <form className="task" onSubmit={handleUpdate}>
+                                <li className="task" key={task.title}>
+                                    <form onSubmit={handleUpdate}>
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
                                         <h4>Påbörjad</h4>
@@ -82,7 +82,7 @@ function TimeTracking() {
                     {loadMember().tasks.length != 0 ? (
                         loadMember().tasks.map((task: Task) => {
                             return task.endTime != null ? (
-                                <li key={task.title}>
+                                <li className="task" key={task.title}>
                                     <h4>Titel</h4>
                                     <p>{task.title}</p>
                                     <h4>Påbörjad</h4>
