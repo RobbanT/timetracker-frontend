@@ -83,14 +83,16 @@ function TimeTracking() {
                         loadMember().tasks.map((task: Task) => {
                             return task.endTime != null ? (
                                 <li className="task" key={task.title}>
-                                    <h4>Titel</h4>
-                                    <p>{task.title}</p>
-                                    <h4>Påbörjad</h4>
-                                    <p>{task.startTime}</p>
-                                    <h4>Avslutad</h4>
-                                    <p>{task.endTime}</p>
-                                    <h4>Spenderad tid</h4>
-                                    <p>{getTotalTime(task)}</p>
+                                    <form>
+                                        <h4>Titel</h4>
+                                        <p>{task.title}</p>
+                                        <h4>Påbörjad</h4>
+                                        <p>{task.startTime}</p>
+                                        <h4>Avslutad</h4>
+                                        <p>{task.endTime}</p>
+                                        <h4>Spenderad tid</h4>
+                                        <p>{getTotalTime(task)}</p>
+                                    </form>
                                 </li>
                             ) : null;
                         })
