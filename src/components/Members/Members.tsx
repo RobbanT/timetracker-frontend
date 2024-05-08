@@ -11,7 +11,7 @@ function Members() {
             return "0h:0min";
         } else {
             tasks.forEach((task: Task) => {
-                if (task.startTime != null && task.endTime != null) {
+                if (task.startTime != "" && task.endTime != "") {
                     totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
                 }
             });
