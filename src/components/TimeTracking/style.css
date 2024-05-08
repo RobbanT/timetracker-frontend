@@ -59,11 +59,7 @@ ul > p {
     text-align: center;
 }
 
-ended-task {
-    padding: 0px;
-    border-radius: 0px;
-    box-shadow: none;
-    border: none;
+.ended-task {
     background-color: red;
     padding-bottom: 5px;
 }
