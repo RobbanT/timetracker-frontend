@@ -61,7 +61,7 @@ function TimeTracking() {
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
                                         <h4>Påbörjad</h4>
-                                        {<p>{task.endTime != null ? getTotalTime(task) : "-h:-min"}</p>}
+                                        {<p>{task.endTime != null ? getTotalTime(task) : "-"}</p>}
                                         <button type="submit">{task.startTime == null ? "Påbörja" : "Avsluta"}</button>
                                         <button>Ta bort</button>
                                     </form>
