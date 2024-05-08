@@ -34,13 +34,7 @@ ul > p {
     margin-top: 20px;
 }
 
-.tasks {
-    margin: 0;
-    padding: 0 2px 0 0;
-    height: 30vh;
-}
-
-.tasks > h3 {
+.inner-container > h3 {
     padding: 0;
     margin: 0;
     font: bold large Arial;
@@ -48,7 +42,13 @@ ul > p {
     color: #555555;
 }
 
-.task > button {
+.tasks {
+    margin: 0;
+    padding: 0 2px 0 0;
+    height: 30vh;
+}
+
+.tasks .task > button {
     width: 48%;
     margin: 10px 1% 0px 1%;
 }
