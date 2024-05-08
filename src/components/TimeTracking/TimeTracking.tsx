@@ -16,6 +16,7 @@ function TimeTracking() {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`)
             .then((res) => res.json())
             .then((data) => console.log(data));
+        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadMember().username}/tasks}`);
     });
     const [task, setTask] = useState<Task>({
         title: "",
