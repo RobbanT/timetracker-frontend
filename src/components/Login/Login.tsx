@@ -1,5 +1,5 @@
-import "./style.css";
 import { ChangeEvent, FormEvent, useState } from "react";
+import type { Member } from "../Main/";
 
 interface Props {
     setPage: (page: string) => void;
@@ -15,13 +15,17 @@ function Login(props: Props) {
         username: "",
         password: "",
     });
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setInput((values) => ({ ...values, [event.target.name]: event.target.value }));
+
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${input.username}/${input.password}`)
             .then((res) => res.json())
             .then((data) => {
-                localStorage.setItem("user", data);
+                const member: Member = data;
+                member.tasks = [];
+                localStorage.setItem("user", JSON.stringify(member));
                 alert(`Användaren "${input.username}" är nu inloggad!`);
                 props.setPage("Hem");
             })
