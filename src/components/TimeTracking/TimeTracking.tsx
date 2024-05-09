@@ -18,7 +18,7 @@ function TimeTracking() {
     });
 
     const [tasks, setTasks] = useState<Task[]>([]);
-
+    const [render, rerender] = useState(false);
     useEffect(() => {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/tasks`)
             .then((res) => res.json())
@@ -38,8 +38,6 @@ function TimeTracking() {
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
         rerender(!render);
     };
-
-    const [render, rerender] = useState(false);
     const handleRemove = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
         const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
