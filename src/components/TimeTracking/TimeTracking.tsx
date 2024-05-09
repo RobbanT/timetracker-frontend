@@ -89,7 +89,7 @@ function TimeTracking(props: Props) {
                                         {
                                             <p>
                                                 {task.startTime != ""
-                                                    ? `${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 16)}`
+                                                    ? `${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 19)}`
                                                     : "--:--"}
                                             </p>
                                         }
@@ -119,9 +119,9 @@ function TimeTracking(props: Props) {
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
                                         <h4>Påbörjad</h4>
-                                        <p>{`${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 16)}`}</p>
+                                        <p>{`${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 19)}`}</p>
                                         <h4>Avslutad</h4>
-                                        <p>{`${new Date(task.endTime).toLocaleString().slice(0, 10)}, ${new Date(task.endTime).toLocaleString().slice(11, 16)}`}</p>
+                                        <p>{`${new Date(task.endTime).toLocaleString().slice(0, 10)}, ${new Date(task.endTime).toLocaleString().slice(11, 19)}`}</p>
                                         <h4>Spenderad tid</h4>
                                         <p>{getTotalTime(task)}</p>
                                     </form>
