@@ -42,23 +42,25 @@ function TimeTracking() {
     const [render, rerender] = useState(false);
     const handleRemove = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`, {
+        const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "${(event.target as HTMLButtonElement).getAttribute("value")}" är borttagen!`);
+                alert(`Uppgiften "${task.title}}" är borttagen!`);
                 rerender(!render);
             });
     };
     const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`, {
+        const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
             method: "PATCH",
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "${(event.target as HTMLButtonElement).getAttribute("value")}" är ${task.endTime == "" ? "påbörjad" : "avslutad"}!`);
+                alert(`Uppgiften "${task.title}" är ${task.startTime == "" ? "påbörjad" : "avslutad"}!`);
                 rerender(!render);
             });
     };
