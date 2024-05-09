@@ -63,13 +63,15 @@ function TimeTracking() {
         console.log(task.title);
         console.log(task.startTime);
         console.log(task.endTime);
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 title: task.title,
+                endTime: task.startTime != "" ? new Date().getTime() : "",
+                startTime: task.startTime == "" ? new Date().getTime : task.startTime,
             }),
         })
             .then((res) => res.json())
