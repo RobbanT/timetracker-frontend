@@ -15,9 +15,9 @@ function Members() {
                     totalTime += new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
                 }
             });
-            const hours = Math.floor(totalTime / 60 / 60 / 1000);
+            const hours = Math.round(totalTime / 60 / 60 / 1000);
             totalTime -= hours * 1000 * 60 * 60;
-            const minutes = Math.floor(totalTime / 1000 / 60);
+            const minutes = Math.round(totalTime / 1000 / 60);
             return `${hours}h:${minutes}min`;
         }
     }
