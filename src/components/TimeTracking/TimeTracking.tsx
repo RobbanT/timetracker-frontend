@@ -30,9 +30,6 @@ function TimeTracking() {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
         })
             .then((res) => res.json())
             .then(() => {
@@ -47,9 +44,6 @@ function TimeTracking() {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`, {
             method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
         })
             .then((res) => res.json())
             .then(() => {
@@ -61,13 +55,10 @@ function TimeTracking() {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`, {
             method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "${task.title}" är ${task.endTime == "" ? "påbörjad" : "avslutad"}!`);
+                alert(`Uppgiften "${(event.target as HTMLButtonElement).getAttribute("value")}" är ${task.endTime == "" ? "påbörjad" : "avslutad"}!`);
                 rerender(!render);
             });
     };
