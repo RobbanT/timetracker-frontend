@@ -78,59 +78,45 @@ function TimeTracking(props: Props) {
             <div className="inner-container">
                 <h3>Uppgifter</h3>
                 <ul className="tasks">
-                    {tasks.length != 0 ? (
-                        tasks.map((task: Task) => {
-                            return task.endTime == "" ? (
-                                <li className="task" key={task.title}>
-                                    <form>
-                                        <h4>Titel</h4>
-                                        <p>{task.title}</p>
-                                        <h4>Påbörjad</h4>
-                                        {
-                                            <p>
-                                                {task.startTime != ""
-                                                    ? `${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 19)}`
-                                                    : "--:--"}
-                                            </p>
-                                        }
-                                        <button onClick={handleUpdate} value={task.title}>
-                                            {task.startTime == "" ? "Påbörja" : "Avsluta"}
-                                        </button>
-                                        <button onClick={handleRemove} value={task.title}>
-                                            Ta bort
-                                        </button>
-                                    </form>
-                                </li>
-                            ) : null;
-                        })
-                    ) : (
-                        <p>Inga uppgifter existerar.</p>
-                    )}
+                    {tasks.map((task: Task) => {
+                        return task.endTime == "" ? (
+                            <li className="task" key={task.title}>
+                                <form>
+                                    <h4>Titel</h4>
+                                    <p>{task.title}</p>
+                                    <h4>Påbörjad</h4>
+                                    {<p>{task.startTime != "" ? `${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 19)}` : "--:--"}</p>}
+                                    <button onClick={handleUpdate} value={task.title}>
+                                        {task.startTime == "" ? "Påbörja" : "Avsluta"}
+                                    </button>
+                                    <button onClick={handleRemove} value={task.title}>
+                                        Ta bort
+                                    </button>
+                                </form>
+                            </li>
+                        ) : null;
+                    })}
                 </ul>
             </div>
             <div className="inner-container">
                 <h3>Avslutade uppgifter</h3>
                 <ul className="tasks">
-                    {tasks.length != 0 ? (
-                        tasks.map((task: Task) => {
-                            return task.endTime != "" ? (
-                                <li className="task ended-task" key={task.title}>
-                                    <form>
-                                        <h4>Titel</h4>
-                                        <p>{task.title}</p>
-                                        <h4>Påbörjad</h4>
-                                        <p>{`${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 19)}`}</p>
-                                        <h4>Avslutad</h4>
-                                        <p>{`${new Date(task.endTime).toLocaleString().slice(0, 10)}, ${new Date(task.endTime).toLocaleString().slice(11, 19)}`}</p>
-                                        <h4>Spenderad tid</h4>
-                                        <p>{getTotalTime(task)}</p>
-                                    </form>
-                                </li>
-                            ) : null;
-                        })
-                    ) : (
-                        <p>Inga avslutade uppgifter existerar.</p>
-                    )}
+                    {tasks.map((task: Task) => {
+                        return task.endTime != "" ? (
+                            <li className="task ended-task" key={task.title}>
+                                <form>
+                                    <h4>Titel</h4>
+                                    <p>{task.title}</p>
+                                    <h4>Påbörjad</h4>
+                                    <p>{`${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 19)}`}</p>
+                                    <h4>Avslutad</h4>
+                                    <p>{`${new Date(task.endTime).toLocaleString().slice(0, 10)}, ${new Date(task.endTime).toLocaleString().slice(11, 19)}`}</p>
+                                    <h4>Spenderad tid</h4>
+                                    <p>{getTotalTime(task)}</p>
+                                </form>
+                            </li>
+                        ) : null;
+                    })}
                 </ul>
             </div>
         </>
