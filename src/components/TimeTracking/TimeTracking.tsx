@@ -27,6 +27,7 @@ function TimeTracking(props: Props) {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/tasks`)
             .then((res) => res.json())
             .then((data) => setTasks(data));
+        props.rerender(!props.render);
     }, []);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
@@ -38,7 +39,6 @@ function TimeTracking(props: Props) {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                props.rerender(!props.render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
