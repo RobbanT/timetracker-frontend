@@ -43,7 +43,7 @@ function TimeTracking() {
     const handleRemove = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
         const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
