@@ -59,7 +59,23 @@ function TimeTracking() {
     };
     const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-        console.log(tasks.find((tempTask2: Task) => tempTask2.title == (event.target as HTMLButtonElement).getAttribute("value")));
+        const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: task.title,
+                endTime: task.startTime != "" ? new Date().getTime() : "",
+                startTime: task.startTime == "" ? new Date().getTime() : task.startTime,
+            }),
+        })
+            .then((res) => res.json())
+            .then(() => {
+                alert(`Uppgiften "${task.title}" är ${task.endTime == "" ? "påbörjad" : "avslutad"}!`);
+                rerender(!render);
+            });
     };
 
     return (
