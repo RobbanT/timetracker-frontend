@@ -57,25 +57,9 @@ function TimeTracking() {
                 rerender(!render);
             });
     };
-    const handleUpdate = (event: any) => {
+    const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.target.getAttribute("value")}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: task.title,
-                startTime: task.startTime,
-                endTime: task.startTime,
-            }),
-        })
-            .then((res) => res.json())
-            .then(() => {
-                alert(`Uppgiften "${task.title}" är tillagd!`);
-                rerender(!render);
-            })
-            .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
+        console.log(tasks.find((tempTask2: Task) => tempTask2.title == (event.target as HTMLButtonElement).getAttribute("value")));
     };
 
     return (
