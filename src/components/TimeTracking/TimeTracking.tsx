@@ -89,7 +89,7 @@ function TimeTracking(props: Props) {
                                         {
                                             <p>
                                                 {task.startTime != ""
-                                                    ? `${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 18)}`
+                                                    ? `${new Date(task.startTime).toLocaleString().slice(0, 10)}, ${new Date(task.startTime).toLocaleString().slice(11, 16)}`
                                                     : "--:--"}
                                             </p>
                                         }
