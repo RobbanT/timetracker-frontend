@@ -11,8 +11,8 @@ interface Props {
 function TimeTracking(props: Props) {
     const getTotalTime = (task: Task): string => {
         const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
-        const hours = Math.floor(totalTime / 60 / 60 / 1000);
-        const minutes = Math.floor((totalTime - hours * 1000 * 60 * 60) / 1000 / 60);
+        const hours = Math.round(totalTime / 60 / 60 / 1000);
+        const minutes = Math.round((totalTime - hours * 1000 * 60 * 60) / 1000 / 60);
         return `${hours}h:${minutes}min`;
     };
 
