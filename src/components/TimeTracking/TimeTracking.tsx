@@ -69,7 +69,9 @@ function TimeTracking() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                task,
+                title: task.title,
+                endTime: "",
+                startTime: "",
             }),
         })
             .then((res) => res.json())
