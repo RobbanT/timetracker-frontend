@@ -70,8 +70,6 @@ function TimeTracking() {
             },
             body: JSON.stringify({
                 title: task.title,
-                endTime: "",
-                startTime: "",
             }),
         })
             .then((res) => res.json())
