@@ -92,12 +92,14 @@ function TimeTracking() {
                         tasks.map((task: Task) => {
                             return task.endTime == "" ? (
                                 <li className="task" key={task.title}>
-                                    <form onSubmit={handleUpdate}>
+                                    <form>
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
                                         <h4>Påbörjad</h4>
                                         {<p>{task.startTime != "" ? getTotalTime(task) : "--:--"}</p>}
-                                        <button type="submit">{task.startTime == "" ? "Påbörja" : "Avsluta"}</button>
+                                        <button onClick={handleUpdate} value={task.title}>
+                                            {task.startTime == "" ? "Påbörja" : "Avsluta"}
+                                        </button>
                                         <button onClick={handleRemove} value={task.title}>
                                             Ta bort
                                         </button>
