@@ -28,7 +28,7 @@ function TimeTracking(props: Props) {
             .then((res) => res.json())
             .then((data) => setTasks(data));
         props.rerender(!props.render);
-    }, []);
+    });
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
     const handleSubmit = (event: FormEvent) => {
