@@ -44,6 +44,7 @@ function TimeTracking() {
 
     const [render, rerender] = useState(false);
     const handleRemove = (event: any) => {
+        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.target.getAttribute("value")}`);
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.target.getAttribute("value")}`, {
             method: "DELETE",
             headers: {
