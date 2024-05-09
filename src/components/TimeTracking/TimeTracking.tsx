@@ -59,6 +59,7 @@ function TimeTracking() {
     };
     const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
+        console.log(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`);
         const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${(event.target as HTMLButtonElement).getAttribute("value")}`, {
             method: "PATCH",
