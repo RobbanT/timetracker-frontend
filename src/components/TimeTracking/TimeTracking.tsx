@@ -53,7 +53,7 @@ function TimeTracking() {
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "event.target.getAttribute("value")" är borttagen!`);
+                alert(`Uppgiften "${event.target.getAttribute("value")}" är borttagen!`);
                 rerender(!render);
             });
     };
