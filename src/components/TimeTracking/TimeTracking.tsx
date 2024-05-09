@@ -56,9 +56,9 @@ function TimeTracking() {
                 rerender(!render);
             });
     };
-    const handleUpdate = (event: FormEvent) => {
+    const handleUpdate = (event: any) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.target.getAttribute("value")}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
