@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import type { Task } from "../Main/";
 import { loadUser } from "../Main/";
 import "./style.css";
@@ -25,7 +25,7 @@ function TimeTracking() {
             .then((data) => setTasks(data));
     }, []);
 
-    const handleChange = (event: any) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
@@ -43,8 +43,8 @@ function TimeTracking() {
     };
 
     const [render, rerender] = useState(false);
-    const handleRemove = () => {
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
+    const handleRemove = (event: any) => {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.target.getAttribute("value")}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -98,7 +98,7 @@ function TimeTracking() {
                                         <h4>Påbörjad</h4>
                                         {<p>{task.startTime != "" ? getTotalTime(task) : "--:--"}</p>}
                                         <button type="submit">{task.startTime == "" ? "Påbörja" : "Avsluta"}</button>
-                                        <button onClick={handleRemove} onChange={handleChange} value={task.title}>
+                                        <button onClick={handleRemove} value={task.title}>
                                             Ta bort
                                         </button>
                                     </form>
