@@ -86,7 +86,7 @@ function TimeTracking(props: Props) {
                                         <h4>Titel</h4>
                                         <p>{task.title}</p>
                                         <h4>Påbörjad</h4>
-                                        {<p>{task.startTime != "" ? `${new Date(task.startTime).getDate()}, ${new Date(task.startTime).getTime()}` : "--:--"}</p>}
+                                        {<p>{task.startTime != "" ? `${new Date(task.startTime).toLocaleString().slice(0, 8)}, ${new Date(task.startTime).getTime()}` : "--:--"}</p>}
                                         <button onClick={handleUpdate} value={task.title}>
                                             {task.startTime == "" ? "Påbörja" : "Avsluta"}
                                         </button>
