@@ -44,6 +44,7 @@ function TimeTracking() {
 
     const [render, rerender] = useState(false);
     const handleRemove = (event: any) => {
+        event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.target.getAttribute("value")}`, {
             method: "DELETE",
             headers: {
@@ -52,7 +53,7 @@ function TimeTracking() {
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "${event.target.getAttribute("value")}" är borttagen!`);
+                alert(`Uppgiften "${task.title}" är borttagen!`);
                 rerender(!render);
             });
     };
@@ -100,10 +101,10 @@ function TimeTracking() {
                                         <button onClick={handleUpdate} value={task.title}>
                                             {task.startTime == "" ? "Påbörja" : "Avsluta"}
                                         </button>
+                                        <button onClick={handleRemove} value={task.title}>
+                                            Ta bort
+                                        </button>
                                     </form>
-                                    <button onClick={handleRemove} value={task.title}>
-                                        Ta bort
-                                    </button>
                                 </li>
                             ) : null;
                         })
