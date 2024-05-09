@@ -48,7 +48,7 @@ function TimeTracking() {
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "${task.title}}" är borttagen!`);
+                alert(`Uppgiften "${task.title}" är borttagen!`);
                 rerender(!render);
             });
     };
