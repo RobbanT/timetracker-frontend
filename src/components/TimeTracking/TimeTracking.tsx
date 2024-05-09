@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import type { Task } from "../Main/";
 import { loadUser } from "../Main/";
 import "./style.css";
@@ -10,20 +10,22 @@ function TimeTracking() {
         const minutes = Math.floor((totalTime - hours * 1000 * 60 * 60) / 1000 / 60);
         return `${hours}h:${minutes}min`;
     };
-    const [render, rerender] = useState(false);
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
+
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
         endTime: "",
     });
+
     const [tasks, setTasks] = useState<Task[]>([]);
+
     useEffect(() => {
-        console.log("Uppdaterar");
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/tasks`)
             .then((res) => res.json())
             .then((data) => setTasks(data));
     }, []);
+
+    const handleChange = (event: any) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
@@ -35,12 +37,12 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                console.log(render);
-                rerender(render == false ? true : false);
-                console.log(render);
+                rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
+
+    const [render, rerender] = useState(false);
     const handleRemove = () => {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
             method: "DELETE",
@@ -56,6 +58,23 @@ function TimeTracking() {
     };
     const handleUpdate = (event: FormEvent) => {
         event.preventDefault();
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: task.title,
+                startTime: task.startTime,
+                endTime: task.startTime,
+            }),
+        })
+            .then((res) => res.json())
+            .then(() => {
+                alert(`Uppgiften "${task.title}" är tillagd!`);
+                rerender(!render);
+            })
+            .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
 
     return (
@@ -79,7 +98,9 @@ function TimeTracking() {
                                         <h4>Påbörjad</h4>
                                         {<p>{task.startTime != "" ? getTotalTime(task) : "--:--"}</p>}
                                         <button type="submit">{task.startTime == "" ? "Påbörja" : "Avsluta"}</button>
-                                        <button onClick={handleRemove}>Ta bort</button>
+                                        <button onClick={handleRemove} onChange={handleChange} value={task.title}>
+                                            Ta bort
+                                        </button>
                                     </form>
                                 </li>
                             ) : null;
