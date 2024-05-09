@@ -3,7 +3,12 @@ import type { Task } from "../Main/";
 import { loadUser } from "../Main/";
 import "./style.css";
 
-function TimeTracking() {
+interface Props {
+    rerender: (render: boolean) => void;
+    render: boolean;
+}
+
+function TimeTracking(props: Props) {
     const getTotalTime = (task: Task): string => {
         const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
         const hours = Math.floor(totalTime / 60 / 60 / 1000);
@@ -18,7 +23,6 @@ function TimeTracking() {
     });
 
     const [tasks, setTasks] = useState<Task[]>([]);
-    const [render, rerender] = useState(false);
     useEffect(() => {
         fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/tasks`)
             .then((res) => res.json())
@@ -34,11 +38,9 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
+                props.rerender(!props.render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
-        {
-            rerender(!render);
-        }
     };
     const handleRemove = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
@@ -49,8 +51,8 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är borttagen!`);
+                props.rerender(!props.render);
             });
-        rerender(!render);
     };
     const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
@@ -61,8 +63,8 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är ${task.startTime == "" ? "påbörjad" : "avslutad"}!`);
+                props.rerender(!props.render);
             });
-        rerender(!render);
     };
 
     return (
