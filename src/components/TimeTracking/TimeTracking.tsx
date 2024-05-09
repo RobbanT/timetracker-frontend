@@ -132,10 +132,3 @@ function TimeTracking(props: Props) {
 }
 
 export default TimeTracking;
-
-/*
-                <label>Starttid</label>
-                <input type="datetime-local" placeholder="Ange starttid..." value={task.startTime} name="startTime" onChange={handleChange} required></input>
-                <label>Sluttid</label>
-                <input type="datetime-local" placeholder="Ange sluttid..." value={task.endTime} name="endTime" onChange={handleChange} required></input>
-*/
