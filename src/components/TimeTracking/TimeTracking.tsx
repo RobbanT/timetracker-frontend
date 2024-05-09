@@ -34,9 +34,9 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
+        rerender(!render);
     };
 
     const [render, rerender] = useState(false);
@@ -49,8 +49,8 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är borttagen!`);
-                rerender(!render);
             });
+        rerender(!render);
     };
     const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
@@ -61,8 +61,8 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är ${task.startTime == "" ? "påbörjad" : "avslutad"}!`);
-                rerender(!render);
             });
+        rerender(!render);
     };
 
     return (
