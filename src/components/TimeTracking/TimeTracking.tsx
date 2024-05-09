@@ -36,7 +36,9 @@ function TimeTracking() {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
-        rerender(!render);
+        {
+            rerender(!render);
+        }
     };
     const handleRemove = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
