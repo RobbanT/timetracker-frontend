@@ -43,9 +43,9 @@ function TimeTracking() {
     };
 
     const [render, rerender] = useState(false);
-    const handleRemove = (event: any) => {
+    const handleRemove = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.target.getAttribute("value")}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${event.currentTarget.getAttribute("value")}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function TimeTracking() {
         })
             .then((res) => res.json())
             .then(() => {
-                alert(`Uppgiften "${event.target.getAttribute("value")}" är borttagen!`);
+                alert(`Uppgiften "${event.currentTarget.getAttribute("value")}" är borttagen!`);
                 rerender(!render);
             });
     };
