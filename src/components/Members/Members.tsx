@@ -1,7 +1,7 @@
 import "./style.css";
 import userIcon from "../../assets/user-icon.svg";
 import logo from "../../assets/icon2.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Task, User } from "../Main";
 
 function Members() {
@@ -22,11 +22,9 @@ function Members() {
         }
     }
     const [members, setMembers] = useState<User[]>([]);
-    useEffect(() => {
-        fetch("https://backend-eft68.ondigitalocean.app/users")
-            .then((res) => res.json())
-            .then((data) => setMembers(data));
-    }, []);
+    fetch("https://backend-eft68.ondigitalocean.app/users")
+        .then((res) => res.json())
+        .then((data) => setMembers(data));
     return (
         <ul>
             {members.map((member: User) => {
