@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import type { Task } from "../Main/";
-import { loadUser } from "../Main/";
 import "./style.css";
 
 interface Props {
@@ -24,7 +23,7 @@ function TimeTracking(props: Props) {
 
     const [tasks, setTasks] = useState<Task[]>([]);
     useEffect(() => {
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/tasks`)
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${JSON.parse(localStorage.getItem("user") as string).username}/tasks`)
             .then((res) => res.json())
             .then((data) => setTasks(data));
         props.rerender(!props.render);
@@ -33,7 +32,7 @@ function TimeTracking(props: Props) {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${JSON.parse(localStorage.getItem("user") as string).username}/task/${task.title}`, {
             method: "POST",
         })
             .then((res) => res.json())
@@ -45,7 +44,7 @@ function TimeTracking(props: Props) {
     const handleRemove = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
         const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${JSON.parse(localStorage.getItem("user") as string).username}/task/${task.title}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
@@ -57,7 +56,7 @@ function TimeTracking(props: Props) {
     const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
         const task: Task = tasks.find((task: Task) => task.title == (event.target as HTMLButtonElement).getAttribute("value")) as Task;
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${loadUser().username}/task/${task.title}`, {
+        fetch(`https://backend-eft68.ondigitalocean.app/user/${JSON.parse(localStorage.getItem("user") as string).username}/task/${task.title}`, {
             method: "PATCH",
         })
             .then((res) => res.json())
