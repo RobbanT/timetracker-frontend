@@ -3,7 +3,7 @@ import type { Task } from "../Main/";
 import "./style.css";
 
 function TimeTracking() {
-    const [render, rerender] = useState(() => false);
+    const [render, rerender] = useState(false);
     const getTotalTime = (task: Task): string => {
         const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
         const hours = Math.round(totalTime / 60 / 60 / 1000);
@@ -33,7 +33,7 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                rerender(!render);
+                rerender(true);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
