@@ -4,7 +4,6 @@ import TimeTracking from "../TimeTracking/";
 import Members from "../Members/";
 import Login from "../Login/";
 import SignUp from "../SignUp/";
-import { useState } from "react";
 
 interface Props {
     setPage: (page: string) => void;
@@ -24,14 +23,13 @@ export interface User {
 }
 
 function Main(props: Props) {
-    const [render, rerender] = useState(false);
     return (
         <main>
             <div className="container">
                 <h2>{props.page}</h2>
                 {{
                     Hem: <Home />,
-                    Tidsrapportering: <TimeTracking render={render} rerender={rerender} />,
+                    Tidsrapportering: <TimeTracking />,
                     Medlemmar: <Members />,
                     "Logga in": <Login setPage={props.setPage} />,
                     "Bli medlem": <SignUp setPage={props.setPage} />,

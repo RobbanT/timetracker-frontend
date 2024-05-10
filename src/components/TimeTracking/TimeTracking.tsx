@@ -2,12 +2,8 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import type { Task } from "../Main/";
 import "./style.css";
 
-interface Props {
-    rerender: (render: boolean) => void;
-    render: boolean;
-}
-
-function TimeTracking(props: Props) {
+function TimeTracking() {
+    const [render, rerender] = useState(() => false);
     const getTotalTime = (task: Task): string => {
         const totalTime: number = new Date(task.endTime).getTime() - new Date(task.startTime).getTime();
         const hours = Math.round(totalTime / 60 / 60 / 1000);
@@ -37,7 +33,7 @@ function TimeTracking(props: Props) {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                props.rerender(!props.render);
+                rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
@@ -50,7 +46,7 @@ function TimeTracking(props: Props) {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är borttagen!`);
-                props.rerender(!props.render);
+                rerender(!render);
             });
     };
     const handleUpdate = (event: React.MouseEvent<HTMLElement>) => {
@@ -62,7 +58,7 @@ function TimeTracking(props: Props) {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är ${task.startTime == "" ? "påbörjad" : "avslutad"}!`);
-                props.rerender(!props.render);
+                rerender(!render);
             });
     };
 
