@@ -23,10 +23,6 @@ export interface User {
     tasks: Task[];
 }
 
-export function loadUser(): User {
-    return JSON.parse(localStorage.getItem("user") as string);
-}
-
 function Main(props: Props) {
     const [render, rerender] = useState(false);
     return (
