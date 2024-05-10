@@ -10,13 +10,11 @@ function TimeTracking() {
         const minutes = Math.round((totalTime - hours * 1000 * 60 * 60) / 1000 / 60);
         return `${hours}h:${minutes}min`;
     };
-
     const [task, setTask] = useState<Task>({
         title: "",
         startTime: "",
         endTime: "",
     });
-
     const [tasks, setTasks] = useState<Task[]>([]);
     fetch(`https://backend-eft68.ondigitalocean.app/user/${JSON.parse(localStorage.getItem("user") as string).username}/tasks`)
         .then((res) => res.json())
@@ -30,6 +28,7 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
+                task.title = "";
                 rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
@@ -58,7 +57,6 @@ function TimeTracking() {
                 rerender(!render);
             });
     };
-
     return (
         <>
             <form onSubmit={handleSubmit}>
