@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import type { Task } from "../Main/";
 import "./style.css";
 
@@ -18,12 +18,9 @@ function TimeTracking() {
     });
 
     const [tasks, setTasks] = useState<Task[]>([]);
-    useEffect(() => {
-        fetch(`https://backend-eft68.ondigitalocean.app/user/${JSON.parse(localStorage.getItem("user") as string).username}/tasks`)
-            .then((res) => res.json())
-            .then((data) => setTasks(data));
-    }, []);
-
+    fetch(`https://backend-eft68.ondigitalocean.app/user/${JSON.parse(localStorage.getItem("user") as string).username}/tasks`)
+        .then((res) => res.json())
+        .then((data) => setTasks(data));
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => setTask((values) => ({ ...values, [event.target.name]: event.target.value }));
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
@@ -33,7 +30,7 @@ function TimeTracking() {
             .then((res) => res.json())
             .then(() => {
                 alert(`Uppgiften "${task.title}" är tillagd!`);
-                rerender(true);
+                rerender(!render);
             })
             .catch(() => alert(`En uppgift med titel "${task.title}" existerar redan. Försök igen!`));
     };
